@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 수업 2</title>
+</head>
+<body>
+    <img src="../우주소녀.jpg"
+    alt="우주소녀"
+    width="100"
+    height="100"
+    title="우주소녀">
+    <!-- 현재위치는 C:\Users\SBA_USER\Desktop\GitHub\sasac-ys-2-\HTMLCSSJS
+        . : 은 현재 위치를 의미
+        ./파일이름 : 현재 위치에 있는 해당 파일을 가져오겠다
+        ../ : 이전경로(부모위치)로 이동
+        ../HTMLCSSJS : 이동가능한가? 당연히 이동가능합니다
+        경로이동방식에 익숙해지길 바란다
+        alt는 인터넷이 아주 느리거나 이미지 태그가 잘 작동하지 않을 때
+        혹은 이미지 위치가 틀렸거나 파일명이 바뀌었을 때. 깨진 이미지가 어떤 이미지인지 설명이 붙기 떄문에 사용을 권장한다.
+    -->
+    <br />
+    <a href="https://www.naver.com/" target="_self">네이버로 슝~</a>
+    <br />
+    <a href="./01_HTML.html" target="_blank">파일로 슝~</a>
+    <hr />
+    <h2>회원가입</h2>
+    <form>
+        이름: <input type="text" name="name"/>
+        <br />
+        이메일: <input type="text" name="email"/>
+        <br />
+        비밀번호: <input type="password" name="pw"/>
+        <br />
+        비밀번호 확인: <input type="text" name="pw_check"/>
+
+        <input type="button" value="제출" />
+        <button>제출</button>
+
+        <br />
+        취미를 선택하세요.
+        <input type="checkbox" name="hobby" value="춤" />춤
+        <input type="checkbox" name="hobby" value="노래"/>노래
+        <input type="checkbox" name="hobby" value="술" />술
+        <input type="checkbox" name="hobby" value="담배" />담배
+
+        <br />
+        성별을 선택하세요.
+        <input type="radio" name="gender" value="여자"/>여자
+        <input type="radio" name="gender" value="men"/>남자
+        <br />
+        15세 이상임?
+        <input type="radio" name="older15" value="true"/>예
+        <input type="radio" name="older15" value="False"/>아니오
+
+        <br />
+        생년월일<input type="date" name="birth"/>
+        색<input type="color" name="color">
+        <br />
+        range : <input type="range" name="range" min="10" max="60" step="10">
+        <br />
+        file : <input type="file" name="img">
+
+
+        <br />
+        <select name="select_option">
+            <optgroup label="데뷔초">
+                <option value="부탁해">부탁해</option>
+                <option value="이루리">이루리</option>
+            <optgroup label="데뷔후">
+                <option value="언네추럴">언네추럴</option>
+                <option value="라스트시퀀스">라스트시퀀스</option>
+            </optgroup>
+        </select>
+    </form>
+</body>
+</html>
