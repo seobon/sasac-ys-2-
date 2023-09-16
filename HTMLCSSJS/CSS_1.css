@@ -1,6 +1,6 @@
-*{
+/* *{
     color: rgb(50, 50, 50);
-}
+} */
 
 /* 태그 선택자*/
 div {
@@ -21,4 +21,26 @@ div {
 }
 #list_1 {
     color: rgb(126, 79, 79);
+}
+
+/* 하위 선택자*/
+/* div .apple {
+    color: rgb(109, 1, 1);
+} */
+
+/* 자식 선택자*/
+div > .apple {
+    color: rgb(109, 1, 1);
+}
+
+/* 인접 형제 선택자*/
+/* h1 + ul {
+    color: chartreuse;
+    font-size: 20px;
+} */
+
+/* 일반 형제 선택자 "다음에 있는 것을 다 선택하겠다"*/
+h1 ~ ul {
+    color: chartreuse;
+    font-size: 20px;
 }

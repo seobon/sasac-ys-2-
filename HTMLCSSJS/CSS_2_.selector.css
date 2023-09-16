@@ -1,0 +1,41 @@
+.div-hover:hover {
+    background-color: red;
+}
+
+.div-active:active {
+    background-color: blue;
+    color: white;
+}
+
+.input-focus:focus {
+    background-color: orange;
+}
+
+a:visited {
+    color: red;
+}
+
+.fruits span:first-child {
+    color: red;
+}
+
+.fruits h3:last-child {
+    color: green;
+}
+
+.fruits span:nth-child(2) {
+    color: blue;
+}
+
+.fruits-2 :nth-child(3n-1) {
+    color: yellow;
+
+}
+
+.fruits-2 span:not(.WM) {
+    background-color: aqua;
+}
+
+.fruits *:not(span) {
+    background-color: aqua;
+}
