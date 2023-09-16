@@ -1,0 +1,24 @@
+*{
+    color: rgb(50, 50, 50);
+}
+
+/* 태그 선택자*/
+div {
+    background-color: aqua;
+}
+
+/* 클래스 선택자*/
+.orange {
+    color: orange;
+}
+.bg-red {
+    background-color: red;
+}
+
+/* 아이디 선택자*/
+#red {
+    color: red;
+}
+#list_1 {
+    color: rgb(126, 79, 79);
+}
