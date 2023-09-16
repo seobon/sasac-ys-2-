@@ -39,3 +39,38 @@ a:visited {
 .fruits *:not(span) {
     background-color: aqua;
 }
+
+/* ::before */
+div.before-el::before {
+    content: "hot!";
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 20%;
+}
+
+/* ::after */
+div.after-el::after {
+    content: "뒤";
+}
+
+
+input[type=text] {
+    background-color: red;
+}
+
+input[type=password] {
+    background-color: blue;
+}
+
+input[name=name] {
+    background-color: green;
+}
+
+.WM-3 {
+    color: red;
+}
+
+.fruits-3 > .WM-3 {
+    color: blue
+}
