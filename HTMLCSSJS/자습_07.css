@@ -10,7 +10,12 @@ div .three {
     background-color: black;
 } */
 
-ul + span {
+/* ul + span {
+    color: yellow;
+    background-color: black;
+} */
+
+ul ~ span {
     color: yellow;
     background-color: black;
 }
