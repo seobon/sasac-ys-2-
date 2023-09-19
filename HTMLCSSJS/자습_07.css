@@ -5,7 +5,12 @@ div .three {
 }
 */
 
-ul > .three {
+/* ul > .three {
+    color: yellow;
+    background-color: black;
+} */
+
+ul + span {
     color: yellow;
     background-color: black;
 }
