@@ -1,0 +1,33 @@
+
+.container {
+    position: relative;
+    height: 200px;
+    background-color: black;
+}
+
+.item {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    z-index: 3;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+}
+
+.orange {
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+    background-color: orange;
+}
+
+.yellow {
+    z-index: 1;
+    top: 30px;
+    left: 30px;
+    background-color: yellow;
+}
