@@ -13,8 +13,8 @@
         결과: <input type="text" id="result" readonly/> <br />
         <br />
         <button type="button" onclick="calc()">계산하기</button>
-        <!-- <button type="button" onclick="resetCalc()">초기화</button> -->
-        <input type="reset" value="초기화"/>
+        <button type="button" onclick="resetCalc()">초기화</button>
+        <!-- <input type="reset" value="초기화"/> -->
     </form>
 
 
@@ -23,7 +23,7 @@
         function calc() {
             const value1 = Number(document.getElementById("value1").value);
             const value2 = Number(document.getElementById("value2").value);
-            const oper = document.getElementsById("operator").value;
+            const oper = document.getElementById("operator").value;
             
             let result = 0;
             switch(oper) {
@@ -42,8 +42,15 @@
             }
 
             document.getElementById("result").value = result;
-
         }
+
+        function resetCalc() {
+            document.getElementById("value1").value = "";
+            document.getElementById("value2").value = "";
+            document.getElementById("operator").value = "";
+            document.getElementById("result").value = "";
+        }
+        
     </script>
 </body>
 </html>

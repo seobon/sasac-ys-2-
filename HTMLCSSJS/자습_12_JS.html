@@ -7,9 +7,9 @@
 </head>
 <body>
     <script>
-        console.log("console입니다.");
-        alert("alert입니다.");
-        confirm("자매품 confirm");
+        // console.log("console입니다.");
+        // alert("alert입니다.");
+        // confirm("자매품 confirm");
         //슬래시 두번
         /*슬래시 별, 별 슬래시*/
         /**
@@ -22,7 +22,86 @@
 
         var name = "Eunseo";
         let realAge = 26;
-        const job = 'IDOL';
+        const job = '가수';
+
+        // console.log(job, name, "좋아");
+        // console.log(job + name + "좋아");
+        // console.log( `안녕 ${name}야`);
+
+        let pie = 3.141592;
+        const old = 26;
+
+        // console.log(pie);
+        // console.log(old);
+
+        let real = true;
+        const fake = false;
+        
+        // console.log(real);
+        // console.log(fake);
+
+        let empty = null;
+
+        // console.log(empty);
+
+        let undef;
+        let obj = {
+            frist: 111,
+        };
+
+        // console.log(undef);
+        // console.log(obj.frist);
+        // console.log(obj.second);
+
+        let WJSN = ["Seola", "Exy", "Bona", "Soobin"];
+
+        // console.log(WJSN[0], WJSN[1], WJSN[2], WJSN[3]);
+
+        let WJSNdata = {
+            member: 10,
+            leader: "Exy",
+            isHandsome: true,
+            favorite: function () {
+                return 'Eunseo'
+            },
+        };
+
+        // console.log(WJSNdata.member);
+        // console.log(WJSNdata.leader);
+        // console.log(WJSNdata.isHandsome);
+        // console.log(WJSNdata.favorite());
+
+        // console.log(typeof "문자");
+        // console.log(typeof 3);
+        // console.log(typeof null);
+        // typeof(function(){});
+        // typeof(true);
+        // typeof(NaN);
+
+        // let mathScore = prompt("수학 점수");
+        // let engScore = prompt("영어 점수");
+        // let mathScore = Number(prompt("수학 점수"));
+        // let engScore = Number(prompt("영어 점수"));
+        // console.log(mathScore + engScore);
+
+        // 문자 데이터로 변환
+        let num = 123;
+        num = String(num);
+        console.log(typeof num);
+        // 숫자 데이터로 변환
+        num = Number(num);
+        console.log(typeof num);
+
+        console.log(Number("abcdefg"));
+
+        String(true);
+        (false).toString();
+
+        Number(true);
+        Number('10');
+
+        parseInt('10', 10);
+
     </script>
 </body>
 </html>
