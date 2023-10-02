@@ -143,6 +143,7 @@
         //     });
         // console.log(sum1, sum2, sum3);
 
+
         const arr = [1, 2, 3, 4, 5];
 
         let arr_filter = arr.filter(function (a) {
@@ -159,6 +160,39 @@
             return b + 3;
         });
         //arr_map = [4, 5, 6, 7, 8]
+
+        let fruits = ["apple", "banana", "grape"];
+        // console.log(fruits[0])
+        // console.log(fruits[1])
+        // console.log(fruits[2])
+        for(let i=0; i<fruits.length; i++){
+            console.log(fruits[i]);
+        }
+
+
+        // for / of 문
+        // let 변수이름 of 배열(위에서 선언해둔)
+        for(let fruit of fruits){
+            console.log(fruit);
+        }
+
+
+        let num = 5;
+        let num2 = num;
+        num2 += 5;
+        console.log(num, num2);
+
+        let arr = [1,2,3,4,5];
+        let arr2 = arr;
+        arr2.reverse()
+        console.log(arr, arr2)
+
+
+        var arr3 = [1, 2, 3, 4];
+        var arr4 = arr3.slice();
+
+        arr4.reverse()
+        console.log(arr3, arr4)
     </script>
 </body>
 </html>
