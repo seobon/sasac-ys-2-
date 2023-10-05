@@ -52,12 +52,12 @@
             // $(".container").css("background-color", "red");
         })
         
-        $(".container").click((event) => {
-            // event가 걸린 요소를 this에 담음.
-            console.log(event.target);
-            $(event.target).css("background-color", "red");
-            // $(".container").css("background-color", "red");
-        })
+        // $(".container").click((event) => {
+        //     // event가 걸린 요소를 this에 담음.
+        //     console.log(event.target);
+        //     $(event.target).css("background-color", "red");
+        //     // $(".container").css("background-color", "red");
+        // })
 
         // .container요소에 마우스가 올라갔을 때, 실행시키고 싶은 코드
         $(".container").mouseover(function() { })
@@ -74,12 +74,23 @@
 
         })
 
+        // $(document).scroll(function() {
+        //     if (document.body.scrollHeight >= "스크롤 위치" ) {
+        //         // 하고싶은 동작
+        //     }
+        //     console.log(document.body.scrollHeight)
+        //     console.log("hello");
+        // })
+
         $(document).scroll(function() {
-            if (document.body.scrollHeight >= "스크롤 위치" ) {
-                // 하고싶은 동작
+            // 스크롤이 바닥을 도달했을 때
+            // $(document).height() : document의 높이를 구함.
+            // 현재 스크롤 위치 : $(window).scrollTop()
+            if ( $(document).height() - $(window).height() == $(window).scrollTop() ) {
+                console.log("hello");
             }
             console.log(document.body.scrollHeight)
-            console.log("hello");
+            
         })
 
 
@@ -99,6 +110,13 @@
             // if(event.keyCode == 13) console.log("value: ", this.value); 
         });
 
+        const container = document.getElementsByClassName("container")
+
+        for(let i = 0; i < container.length; i++) {
+                container[i].addEventListener("click", function() {
+                this.style.backgroundColor = "red";
+            })
+        }
     </script>
 </body>
 </html>

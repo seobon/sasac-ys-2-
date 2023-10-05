@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document 객체</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 400px;
+            background-color: beige;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box red"></div>
+        <div class="box orange"></div>
+        <div class="box yellow"></div>
+    </div>
+    <input type="text" name="name" />
+    <div>
+        <button type="button" onclick="twinkle()">반짝여라</button>
+        <button type="button" onclick="addPlaceholder()">placeholder 추가</button>
+        <!-- <button type="button" onclick="addBox()">box 추가</button>
+        <button type="button" onclick="removeBox()">box 삭제</button> -->
+    </div>
+
+
+
+    <script>
+        const boxes = document.querySelectorAll(".box");
+        boxes[0].innerHTML = "hello"
+        const box1 = boxes[0];
+
+        function twinkle() {
+            // if (box1.classList.contains("red")) box1.classList.remove("red")
+            // else box1.classList.add("red")
+            box1.classList.toggle("red")
+        }
+
+        const input = document.querySelector("input");
+        function addPlaceholder() {
+            input.setAttribute("placeholder", "이름을 입력하세요");
+            input.setAttribute("id", "input_name");
+        }
+
+        const container = document.querySelector(".container");
+        console.log(container.children[1])
+
+        console.log(box1.parentNode)
+
+        console.log(box1.nextElementSibling)
+        console.log(boxes[1].previousElementSibling)
+    </script>
+</body>
+</html>
