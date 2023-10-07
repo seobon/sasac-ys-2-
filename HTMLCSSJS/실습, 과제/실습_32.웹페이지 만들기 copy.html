@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Maple Story</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            /* --nav-height-lg: 100px;
+            --nav-height-sm: 60px; */
+        }
+
+        body {
+            background-color: black;
+            position: absolute;
+            margin: 0;
+            top: 0px;
+            left: 0px;
+        }
+
+        header {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 1000px;
+            height: 100px;
+            z-index: 100;
+            background-color: black;
+        }
+
+        .inner {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+
+        .logo {
+            position: relative;
+            height: 100%;
+            top: 0px;
+        }
+
+        .title {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            color: lightgray;
+            top: -100px;
+            left: 0px;
+            font-size: 25px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mainImg {
+            position: relative;
+            width: 1000px;
+            top: 100px;
+            z-index: 0;
+        }
+
+        .list {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            top: -100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .jobs {
+            color: lightgray;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .jobExplain{
+            position: absolute;
+            width: 1000px;
+            max-width: 100%;
+            display: flex;
+            opacity:0;
+            top: 100px;
+        }
+
+        .ani {
+            animation: open 1s linear 1s 1 forwards;
+        }
+
+        .jobImg {
+            position: relative;
+            margin: 15px;
+            height: 600px;
+        }
+
+        .text-box {
+            background-color: lightgray;
+            color: black;
+            margin: 15px;
+        }
+
+        .expain {
+            height: 100px;
+            position: relative;
+            left: 10px;
+        }
+
+        @keyframes open {
+            from {
+                opacity:0;
+            }
+
+            to {
+                opacity:1;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .jobImg {
+                width: 300px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <header>
+        <div class="inner">
+            <img src="../img/ms-logo-단풍잎.png" class="logo" alt="logo">
+        </div>
+        <div class="title">직업소개</div>
+        <div class="list">
+            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <button type="button" class="btn jobs" onclick="addAni('warrior')">전사</button>
+                <button type="button" class="btn jobs">마법사</button>
+                <button type="button" class="btn jobs">궁수</button>
+                <button type="button" class="btn jobs">도적</button>
+                <button type="button" class="btn jobs">해적</button>
+            </div>
+        </div>
+
+        <script>
+        </script>
+    </header>
+    <img src="../img/ms-메인_2.jpg" class="mainImg" alt="main">
+    
+    <div class="jobExplain" data-job="warrior">
+        <img src="../img/ms-job-warrior.webp" class="jobImg" alt="warrior">
+        <div class="expain">
+            <div class="card text-box" style="width: 20rem;">
+                <div class="card-body">
+                  <h5 class="card-title">전사</h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">히어로/팔라딘/다크나이트</h6>
+                  <p class="card-text">기동성 개구림. 다크나이트를 제외하면 사냥에서 그리 크게 장점이 없음. 히어로는 초반 사냥도 힘든데다가 키워봤자 보스용</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+    <script>
+        function addAni (job) {
+            $("[data-job=warrior]").addClass("ani")
+        }
+    </script>
+    
+</body>
+</html>
