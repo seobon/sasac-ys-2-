@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 리스너</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        console.log($(".container"));
+        
+        $(document).ready(function() {
+            console.log($(".container"));
+        })
+
+
+        $(function(){
+            console.log($(".container"));
+        })
+    </script>
+
+    <style> 
+        .container{
+            background-color: cadetblue;
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+
+    <div class="container"></div>
+
+    <input type="text" name="pw" />
+
+
+    <script>
+        // $(".container").click(function() {
+        //     $(this).css("background-color", "blue");
+        // })
+
+        $(".container").click((event) => {
+            $(event.target).css("background-color", "blue");
+        })
+
+        $(".container").mouseover(function() {
+            $(this).css("width", "300px");
+        })
+
+        $(".container").mouseout(function() {
+            $(this).css("width", "200px");
+        })
+
+        $(".container").hover(function() {
+            $(this).css("background-color", "green");
+        }, function() {
+            $(this).css("background-color", "red");
+        })
+
+        $(document).scroll(function() {
+            if (document.body.scrollHeight >= 200) {
+                $(".container").text("hello");
+            }
+        })
+        
+        $("input[name=pw]").keyup(function(event) {
+            console.log(event)
+            // if(event.key == "Enter") $(".container").append(this.value);
+            $(".container").css("background-color", "black");
+            if(this.value == "빨강") $(".container").css("background-color", "red");
+            if(this.value == "노랑") $(".container").css("background-color", "yellow");
+            if(this.value == "초록") $(".container").css("background-color", "green");
+            if(this.value == "파랑") $(".container").css("background-color", "blue");
+        })
+
+        // // on: 이벤트를 걸겠다. (어떤 이벤트? 미정!)
+        // $("input[name=pw]").on("keyup", function(event){
+        //     // console.log("key: ", event.key)
+        //     if(event.key == "Enter") console.log("value: ", this.value); // login();
+        //     // if(event.keyCode == 13) console.log("value: ", this.value); 
+        // });
+
+    </script>
+</body>
+</html>
