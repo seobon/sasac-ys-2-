@@ -96,14 +96,14 @@
         function removeBox() {
             // 1번 방법 
             // 삭제하고 싶은 요소 선택
-            const orangeBox = document.querySelector(".box.orange");
+            // const orangeBox = document.querySelector(".box.orange");
             // 삭제한다.
-            orangeBox.remove();
+            // orangeBox.remove();
 
             // 2번 방법
             // 삭제하고 싶은 요소의 부모요소를 선택해서 자식으로 접근
-            // const container2 = document.querySelector(".container");
-            // container2.removeChild(container2.children[1]);
+            const container2 = document.querySelector(".container");
+            container2.removeChild(container2.children[1]);
         }
     </script>
 </body>
