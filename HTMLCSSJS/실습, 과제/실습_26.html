@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // let sum = 0;
+    // for(let i = 0; i <= 100; i++) {
+    //     if(i%2 == 0) {
+    //         sum += i;
+    //     } else if(i%5 == 0) {
+    //         sum += i;
+    //     }
+    // }
+    // console.log(sum);
+
+
+    // let promptValue = prompt('값을 입력하세요', 'Default Value');
+
+    // for (i=0; i <= promptValue; i++) {
+    //     if (i%13 == 0 && i%2 == 1) {
+    //         console.log(i)
+    //     }
+    // }
+
+
+    // for (i=2; i < 10; i++) {
+    //     console.log(`***${i}단***`)
+    //     for (j=2; j < 10; j++) {
+    //         console.log(`${i} X ${j} = ${i*j}`)
+    //     }
+    // }
+
+
+    // let promptValue = prompt('값을 입력하세요', 'Default Value');
+
+    // for (i=0; i <= promptValue; i++) {
+    //     console.log("*".repeat(i))
+    // }
+
+
+    let numbers = []
+    for (let i = 1; i <= 100; i++) {
+        numbers.push(i)
+    }
+
+    // console.log(numbers)
+
+    sum1 = 0
+    for (j = 0; j <= 99; j++) {
+        sum1 = sum1 + numbers[j]
+    } 
+
+    console.log(sum1)
+
+    sum2 = 0
+    for (let number of numbers) {
+        sum2 = sum2 + number
+    }
+
+    console.log(sum2)
+    </script>
+</body>
+</html>
