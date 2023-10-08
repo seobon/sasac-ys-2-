@@ -49,19 +49,27 @@
 
     // console.log(numbers)
 
-    sum1 = 0
+    let sum1 = 0
     for (j = 0; j <= 99; j++) {
         sum1 = sum1 + numbers[j]
     } 
 
     console.log(sum1)
 
-    sum2 = 0
+
+    let sum2 = 0
     for (let number of numbers) {
         sum2 = sum2 + number
     }
 
     console.log(sum2)
+
+    let sum3 = 0
+    numbers.forEach(function(number) {
+        sum3 = sum3 + number;
+    });
+
+    console.log(sum3)
     </script>
 </body>
 </html>
