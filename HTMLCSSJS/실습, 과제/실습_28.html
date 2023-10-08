@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>방명록 만들기 실습(ㅈㄴ어려움 다시 풀어보길 권장)</title>
+    <title>방명록 만들기 실습</title>
 </head>
 <body>
     <div>방명록입니다.</div>
     <div>
-        <div>작성자: <input type="text" name="name"/></div>
-        <div>내용: <input type="text" name="content"/></div>
+        <div>작성자: <input type="text" cid="name"/></div>
+        <div>내용: <input type="text" class="content"/></div>
         <button type="button" onclick="addRow()">작성</button>
     </div>
 
@@ -26,46 +26,14 @@
             
         </tbody>
     </table>
-
+    
     <script>
-        let num = 1;
+        let jag;
         function addRow() {
-            // input 2개의 값을 가져와야 함.
-            const name = document.querySelector("[name=name]").value;
-            const content = document.querySelector("[name=content]").value;
-            // 번호, 작성일
-            // tbody의 children 개수 -> tbody 선택 ->
-            const date = new Date()
-            const dateString = `${date.getFullYear()}`
-
-            // tr 태그를 만든다.
-            const tr = document.createElement("tr");
-
-            // td 태그 4개를 만든다.
-            const td1 = document.createElement("td");
-            td1.innerText = num;
-            const td2 = document.createElement("td");
-            td2.innerText = name;
-            const td3 = document.createElement("td");
-            td3.innerText = content;
-            const td4 = document.createElement("td");
-            td4.innerText = dateString;
-
-            // td 태그 4개를 tr 태그의 자식요소로 추가한다. 
-            tr.append(td1)
-            tr.append(td2)
-            tr.append(td3)
-            tr.append(td4)
-
-            // tbody 태그의 자식요소로 tr 태그를 추가한다.
-            const tbody = document.querySelector("tbody");
-            tbody.append(tr);
-
-            num++;
+            jag = document.getElementById("name").value;
+            console.log(jag)
+            // box.innerHTML = "hello"
         }
-
-        
-        
     </script>
 </body>
 </html>

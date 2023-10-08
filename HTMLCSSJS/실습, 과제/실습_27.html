@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>계산기 만들기 실습(ㅈㄴ어려움 다시 풀어보길 권장)</title>
+    <title>계산기 만들기 실습</title>
 </head>
 <body>
     <form>
@@ -13,44 +13,37 @@
         결과: <input type="text" id="result" readonly/> <br />
         <br />
         <button type="button" onclick="calc()">계산하기</button>
-        <button type="button" onclick="resetCalc()">초기화</button>
+        <button type="reset" onclick="resetCalc()">초기화</button>
         <!-- <input type="reset" value="초기화"/> -->
     </form>
 
 
     <script>
-        // let value1 = document.getElementById("value1")
+        let val1;
+        let val2;
+        let oper;
+        let res;
         function calc() {
-            const value1 = Number(document.getElementById("value1").value);
-            const value2 = Number(document.getElementById("value2").value);
-            const oper = document.getElementById("operator").value;
-            
-            let result = 0;
-            switch(oper) {
-                case "+":
-                    result = value1+value2;
-                    break
-                case "-":
-                    result = value1-value2;
-                    break
-                case "*":
-                    result = value1*value2;
-                    break
-                case "/":
-                    result = value1/value2;
-                    break
-            }
-
-            document.getElementById("result").value = result;
+            val1 = Number(document.getElementById("value1").value);
+            val2 = Number(document.getElementById("value2").value);
+            oper = document.getElementById("operator").value;
+            if (oper == "+") {
+                document.getElementById("result").value = val1 + val2
+            } else if (oper == "-") {
+                document.getElementById("result").value = val1 - val2
+            } else if (oper == "*") {
+                document.getElementById("result").value = val1 * val2
+            } else if (oper == "/") {
+                document.getElementById("result").value = val1 / val2
+            } 
         }
 
         function resetCalc() {
-            document.getElementById("value1").value = "";
-            document.getElementById("value2").value = "";
-            document.getElementById("operator").value = "";
-            document.getElementById("result").value = "";
+            let val1;
+            let val2;
+            let oper;
+            let res;
         }
-        
     </script>
 </body>
 </html>
