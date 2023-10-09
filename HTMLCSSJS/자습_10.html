@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./자습_10.css">
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="red box"></div>
+        <div class="orange box"></div>
+        <div class="yellow box"></div>
+        <div class="green box"></div>
+    </div>
+
+    <hr />
+
+    <div class="container">
+        <div class="red2 box"></div>
+        <div class="orange2 box"></div>
+        <div class="yellow2 box"></div>
+    </div> -->
+
+    <!-- <hr />
+
+    <img class="img-skew" src="./마블_02.png"/>
+    <br />
+    <img class="img-rotate" src="./마블_02.png"/>
+    <br />
+    <img class="img-scale" src="./마블_02.png"/>
+    <br />
+    <img class="img-translate" src="./마블_02.png"/>
+    <br />
+    <img class="img-transform" src="./마블_02.png"/>
+
+    <hr /> -->
+
+    <!--<div class="box d-inline-block"></div>
+    <div class="box d-inline-block"></div>
+    <div class="box d-inline-block"></div>
+
+    <div class="container"></div>
+
+    <hr /> -->
+
+    <div class="container-1">
+        <div class="box item-1"></div>
+        <div class="box item-2"></div>
+        <div class="box item-3"></div>
+    </div>
+    <div class="container-2">
+        <div class="box item-1"></div>
+        <div class="box item-2"></div>
+        <div class="box item-3"></div>
+    </div>
+    <div class="container-3">
+        <div class="box item-1"></div>
+        <div class="box item-2"></div>
+        <div class="box item-3"></div>
+    </div>
+</body>
+</html>
+
+
+
+<!-- <style>
+      hr {
+        margin-bottom: 100px;
+      }
+      div {
+        display: inline-block;
+        margin-right: 50px;
+      }
+      img {
+        width: 100px;
+        height: 100px;
+      }
+
+      #img_translatex:active {
+        transform: translateX(40px);
+      }
+      #img_translatey:active {
+        transform: translateY(40px);
+      }
+      #img_translatexy:active {
+        transform: translate(40px, 40px);
+      }
+
+      #img_scalex:active {
+        transform: scaleX(2);
+      }
+      #img_scaley:active {
+        transform: scaleY(2);
+      }
+      #img_scale:active {
+        transform: scale(2);
+      }
+      #img_scale23:active {
+        transform: scale(2, 3);
+      }
+
+      #img_rotatex:active {
+        transform: rotateX(100deg);
+      }
+      #img_rotatey:active {
+        transform: rotateY(100deg);
+      }
+      #img_rotate:active {
+        transform: rotate(100deg);
+      }
+
+      #img_skewx:active {
+        transform: skewX(50deg);
+      }
+      #img_skewy:active {
+        transform: skewY(50deg);
+      }
+      #img_skew:active {
+        transform: skew(50deg, 50deg);
+      }
+
+      #img_backface:active {
+        transform: rotateX(180deg);
+        backface-visibility: hidden;
+        transition: transform 2s ease-out;
+      }
+
+      #img_transform:active {
+        /* transform 여러개 설정한 경우 */
+        transform: perspective(150px) translateX(40px) rotateX(100deg)
+          skewX(50deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      translateX 40px
+      <img
+        id="img_translatex"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      translateY 40px
+      <img
+        id="img_translatey"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      translateXY 40px
+      <img
+        id="img_translatexy"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+
+    <hr />
+    <div>
+      scaleX 2
+      <img
+        id="img_scalex"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      scaleY 2
+      <img
+        id="img_scaley"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      scale 2
+      <img
+        id="img_scale"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      scale 2,3
+      <img
+        id="img_scale23"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+
+    <hr />
+    <div>
+      rotateX 100deg
+      <img
+        id="img_rotatex"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      rotateY 100deg
+      <img
+        id="img_rotatey"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      rotate 100deg, 100deg
+      <img
+        id="img_rotate"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+
+    <hr />
+    <div>
+      skewX 50deg
+      <img
+        id="img_skewx"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      skewY 50deg
+      <img
+        id="img_skewy"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+    <div>
+      skew 50deg, 50deg
+      <img
+        id="img_skew"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+
+    <hr />
+    <div>
+      backface-visibility hidden
+      <img
+        id="img_backface"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+
+    <div>
+      transform 여러개
+      <img
+        id="img_transform"
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832"
+      />
+    </div>
+  </body>
+</html> -->

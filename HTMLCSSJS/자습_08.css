@@ -1,0 +1,17 @@
+.hover:hover {
+    color: white;
+    background-color: blue;
+}
+
+.active:active {
+    color: white;
+    background-color: blue;
+}
+
+.input-focus:focus {
+    background-color: blue;
+}
+
+a:visited {
+    color: blue;
+}

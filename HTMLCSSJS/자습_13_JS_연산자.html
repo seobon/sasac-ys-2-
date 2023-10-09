@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 연산자
+        // ----------- 대입 연산자 = ----------- 
+        let num1 = 5;
+        let num2 = num1;
+
+        // ----------- 비교 연산자 -----------
+        // ==, ===
+        console.log("80" == 80) // true
+        console.log("80" === 80) // false
+        // >=, >, <=, <
+        console.log(70 >= 80) // false
+        console.log(80 > 70) // true
+        // !=, !== 
+        console.log("lily" != "linda") // true
+        console.log("80" !== 80) // true
+
+        // ----------- 산술 연산자 -----------
+        console.log(80 + 70) // 150 
+        console.log(8 * 7) // 56
+        console.log(10 / 2) // 5
+
+        console.log(9 % 2) // % : 나눴을 때 나머지를 
+        let num = 5;
+        console.log(num % 2 == 1) // true
+
+        console.log(2**5)
+
+        // ----------- 논리 연산자 -----------
+        // 4 < num < 8 
+        // && (And) : 앞, 뒤 조건 모두 true => true
+        console.log( num > 4 && num < 8 )
+        // || (Or) : 앞, 뒤 조건 중 둘 중 하나라도 true => true
+        console.log( num < 5 || num > 8)
+        // ! (Not) 
+        let bool = true;
+        let undef;
+        console.log( !bool ) // false
+        console.log( !undef ) // true
+
+        console.log( !true ) // false
+        console.log( !null ) // true
+        console.log( !undefined ) // true
+        // console.log( !(num > 5) )
+
+        // 연산자를 줄인다 ?
+        // 자기 자신에 들어있던 값을 활용하여 연산 후,
+        // 다시 자신에게 할당하려고 할 때
+        let num4 = 5;
+        // num4 = num4 - 1;
+        num4 -= 1
+        console.log(num4)
+
+        // ----------- 증감 연산자 -----------
+        let num5 = 5, num6 = 5;
+        let result = num5++;
+        console.log(result)
+        console.log(num5);
+
+        let result2 = ++num6;
+        console.log(result2)
+    </script>
+</body>
+</html>

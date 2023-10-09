@@ -1,0 +1,38 @@
+body {
+    margin: 0px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+}
+
+.container {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+}
+
+.item-1 {
+    position: relative;
+    left: 50px;
+    top: 30px;
+    background-color: lightsalmon;
+}
+
+.item-2 {
+    position: absolute;
+    right: 30px;
+    bottom: 100px;
+    background-color: lightgreen;
+}
+
+.item-3 {
+    position: fixed;
+    right: 100px;
+    top: 100px;
+    background-color: lightblue;
+}
