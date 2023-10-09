@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        funEx1();
+        // 명시적 함수 선언 
+        function funEx1 (){
+            console.log("hello 1");
+        } // 호이스팅
+        
+        // funEx2(); // 오류
+        // 함수 표현식으로 선언
+        const funEx2 = function () {
+            console.log("hello 2");
+        }
+        const funEx3 = () => {
+            console.log("hello 3");
+        }
+
+        funEx2();
+        funEx3();
+        
+        
+        // 매개변수 여부, 반환값 여부
+        // 매개변수 X, 반환값(return) X 
+        function funEx1 (){
+            console.log("funEx1");
+            // return X
+        }
+        // 매개변수 O, 반환값 X
+        function funEx2 (num){
+            console.log(num);
+            // return X
+        }
+        // 매개변수: 함수 외부에서 함수 내부로 값을 전달하고 싶을 때
+        let number = 5;
+        funEx2(number);
+
+        // 반환 값: 함수 내부의 값을 함수 외부로 전달하고 싶을 때
+        // 매개변수 X, 반환값 O
+        function funEx3() {
+            console.log("funEx3");
+            return "hello"
+        }
+        let hello = funEx3();
+        console.log(hello);
+        // let hello = "hello"; // 반환값이 hello라는 변수에 들어감
+        
+        // 매개변수 O, 반환값 O
+        function funEx4(num1, num2) {
+            console.log("funEx4");
+            return num1 + num2;
+        }
+
+        let sum = funEx4(2, 3)
+        console.log(sum);
+    </script>
+</body>
+</html>

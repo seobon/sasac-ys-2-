@@ -1,0 +1,82 @@
+body {
+    margin: 0px;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.container {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
+
+
+.item-1 {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    background-color: lightsalmon;
+}
+
+.eye-1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.eye-2 {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: black;
+}
+
+.item-2 {
+    position: absolute;
+    top: 100px;
+    left: 130px;
+    background-color: lightgreen;
+}
+
+.item-3 {
+    position: absolute;
+    top: 150px;
+    left: 190px;;
+    background-color: lightblue;
+}
+
+.item-4 {
+    position: absolute;
+    top: 140px;
+    left: 250px;;
+    background-color: skyblue;
+}
+
+.item-5 {
+    position: absolute;
+    z-index: 15;
+    top: 130px;
+    left: 300px;;
+    background-color: darkgreen;
+}
+
+.grass {
+    position: absolute;
+    z-index: 10;
+    top: 120px;
+    left: 50px;;
+}

@@ -6,16 +6,16 @@
     <title>이벤트 리스너</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
-        console.log($(".container"));
+        // console.log($(".container"));
         
-        $(document).ready(function() {
-            console.log($(".container"));
-        })
+        // $(document).ready(function() {
+        //     console.log($(".container"));
+        // })
 
 
-        $(function(){
-            console.log($(".container"));
-        })
+        // $(function(){
+        //     console.log($(".container"));
+        // })
     </script>
 
     <style> 
@@ -32,7 +32,7 @@
 
     <div class="container"></div>
 
-    <input type="text" name="pw" />
+    <!-- <input type="text" name="pw" /> -->
 
 
     <script>
@@ -40,29 +40,29 @@
         //     $(this).css("background-color", "blue");
         // })
 
-        $(".container").click((event) => {
-            $(event.target).css("background-color", "blue");
-        })
+        // $(".container").click((event) => {
+        //     $(event.target).css("background-color", "blue");
+        // })
 
-        $(".container").mouseover(function() {
-            $(this).css("width", "300px");
-        })
+        // $(".container").mouseover(function() {
+        //     $(this).css("width", "300px");
+        // })
 
-        $(".container").mouseout(function() {
-            $(this).css("width", "200px");
-        })
+        // $(".container").mouseout(function() {
+        //     $(this).css("width", "200px");
+        // })
 
-        $(".container").hover(function() {
-            $(this).css("background-color", "green");
-        }, function() {
-            $(this).css("background-color", "red");
-        })
+        // $(".container").hover(function() {
+        //     $(this).css("background-color", "green");
+        // }, function() {
+        //     $(this).css("background-color", "red");
+        // })
 
-        $(document).scroll(function() {
-            if (document.body.scrollHeight >= 200) {
-                $(".container").text("hello");
-            }
-        })
+        // $(document).scroll(function() {
+        //     if (document.body.scrollHeight >= 200) {
+        //         $(".container").text("hello");
+        //     }
+        // })
         
         $("input[name=pw]").keyup(function(event) {
             console.log(event)
