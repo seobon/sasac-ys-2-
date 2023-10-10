@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록 만들기 실습</title>
+</head>
+<body>
+    <div>방명록입니다.</div>
+    <div>
+        <div>작성자: <input type="text" id="name"/></div>
+        <div>내용: <input type="text" id="content"/></div>
+        <button type="button" onclick="addRow()">작성</button>
+    </div>
+
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+    <script>
+        num=1
+        function addRow() {
+            let now = new Date()
+            let year = now.getFullYear()
+            let month = now.getMonth()+1
+            let date = now.getDate()
+            let hours = now.getHours()
+            let minutes = now.getMinutes()
+
+            let name = document.getElementById("name").value;
+            let content = document.getElementById("content").value;
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<tr>
+                <th>${num}</th>
+                <th>${name}</th>
+                <th>${content}</th>
+                <th>${year}-${month}-${date} ${hours} : ${minutes}</th>
+                </tr>`;
+            const tbody = document.querySelector("tbody");
+            tbody.append(tr);
+            num++;
+        }
+    </script>
+</body>
+</html>
