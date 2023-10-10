@@ -1,9 +1,0 @@
-/* ::before */
-div.box::before {
-    content: "택시";
-}
-
-/* ::after */
-div.box::after {
-    content: "빨리";
-}
