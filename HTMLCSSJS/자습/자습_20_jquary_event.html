@@ -32,7 +32,7 @@
 
     <div class="container"></div>
 
-    <!-- <input type="text" name="pw" /> -->
+    <input type="text" name="pw" />
 
 
     <script>
@@ -64,22 +64,35 @@
         //     }
         // })
         
-        $("input[name=pw]").keyup(function(event) {
-            console.log(event)
-            // if(event.key == "Enter") $(".container").append(this.value);
-            $(".container").css("background-color", "black");
-            if(this.value == "빨강") $(".container").css("background-color", "red");
-            if(this.value == "노랑") $(".container").css("background-color", "yellow");
-            if(this.value == "초록") $(".container").css("background-color", "green");
-            if(this.value == "파랑") $(".container").css("background-color", "blue");
-        })
+        // $("input[name=pw]").keyup(function(event) {
+        //     // console.log(event)
+        //     // if(event.key == "Enter") $(".container").append(this.value);
+        //     // if(event.key == "Enter") console.log("value: ", this.value);
+        //     // if(event.keyCode == 13) console.log("value: ", this.value);
+        //     $(".container").css("background-color", "black");
+        //     if(this.value == "빨강") $(".container").css("background-color", "red");
+        //     if(this.value == "노랑") $(".container").css("background-color", "yellow");
+        //     if(this.value == "초록") $(".container").css("background-color", "green");
+        //     if(this.value == "파랑") $(".container").css("background-color", "blue");
+        // })
 
-        // // on: 이벤트를 걸겠다. (어떤 이벤트? 미정!)
         // $("input[name=pw]").on("keyup", function(event){
         //     // console.log("key: ", event.key)
         //     if(event.key == "Enter") console.log("value: ", this.value); // login();
         //     // if(event.keyCode == 13) console.log("value: ", this.value); 
         // });
+
+        const container = document.getElementsByClassName("container")
+
+        container[0].addEventListener("click", function() {
+            this.style.backgroundColor = "red";
+        })
+
+        for(let i = 0; i < container.length; i++) {
+                container[i].addEventListener("click", function() {
+                this.style.backgroundColor = "red";
+            })
+        }
 
     </script>
 </body>

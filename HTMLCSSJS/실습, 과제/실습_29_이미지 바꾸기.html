@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            width: 600px;
+            height: 400px;
+            border-style: solid;
+            border-color: black;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .box{
+            display: flex;
+            justify-content: center;
+        }
+
+        .fruit-box{
+            width: 500px;
+            height: 250px;
+            background-color: white;
+            border-radius: 20px;
+            border-style: solid;
+            border-color: orange;
+            font-size: 80px;
+            padding: 40px 0px;
+            margin: 20px 50px;
+        }
+
+        .button {
+            width: 80px;
+            height: 50px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="fruit-box" id="fruit-box">과일을 골라볼게요</div>
+        <div class="box">
+            <button type="button" onclick="apple()" class="button" id="apple">사과</button>
+            <button type="button" onclick="banana()" class="button">바나나</button>
+            <button type="button" onclick="apple()" class="button">포도</button>
+            <button type="button" onclick="apple()" class="button">복숭아</button>
+        </div>
+    </div>
+
+
+    <script>
+        
+        function apple() {
+            let fruit = $("#fruit-box")
+            // fruit.removeClass("fruit-box")
+            fruit.innerHTML = `<img src="../img/마블_01.png" title="사과" alt="사과" width="345px" height="345px">`
+        }
+
+        // function banana() {
+        //     let container = document.querySelector(".container")
+        //     let fruit = document.querySelector(".fruit-box")
+        //     let banana = document.createElement("div");
+        //     banana.innerHTML = `<img src="../img/마블_02.png" title="바나나" alt="바나나" width="345px" height="345px">`
+        //     fruit.remove();
+        //     container.prepend(banana)
+        // }
+
+        // function apple() {
+        //     let container = document.querySelector(".container")
+        //     let fruit = document.querySelector(".fruit-box")
+        //     let apple = document.createElement("div");
+        //     apple.innerHTML = `<img src="../img/마블_01.png" title="사과" alt="사과" width="345px" height="345px">`
+        //     fruit.remove();
+        //     container.prepend(apple)
+        // }
+
+        // function apple() {
+        //     let container = document.querySelector(".container")
+        //     let fruit = document.querySelector(".fruit-box")
+        //     let apple = document.createElement("div");
+        //     apple.innerHTML = `<img src="../img/마블_01.png" title="사과" alt="사과" width="345px" height="345px">`
+        //     fruit.remove();
+        //     container.prepend(apple)
+        // }
+
+    </script>
+</body>
+</html>
