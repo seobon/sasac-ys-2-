@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            transition-duration: 300ms;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="container red"></div>
+
+    <script>
+        $('.container').click(function() {
+            if ($('.container').hasClass("red")) {
+                $('.container').removeClass("red")
+                $('.container').addClass("orange")
+            }
+            else if ($('.container').hasClass("orange")) {
+                $('.container').removeClass("orange")
+                $('.container').addClass("yellow")
+            }
+            else if ($('.container').hasClass("yellow")) {
+                $('.container').removeClass("yellow")
+                $('.container').addClass("green")
+            }
+            else if ($('.container').hasClass("green")) {
+                $('.container').removeClass("green")
+                $('.container').addClass("blue")
+            }
+            else if ($('.container').hasClass("blue")) {
+                $('.container').removeClass("blue")
+                $('.container').addClass("purple")
+            }
+            else if ($('.container').hasClass("purple")) {
+                $('.container').removeClass("purple")
+                $('.container').addClass("red")
+            } 
+        })
+    </script>
+</body>
+</html>

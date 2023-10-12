@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <script
       src="https://kit.fontawesome.com/837ff3adc1.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./실습_31.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./실습_31_자리 바꾸기, header 만들기.css" />
 </head>
 <body>
     <!-- <p class="container">미디어쿼리실습</p> -->
@@ -21,7 +22,7 @@
     <header>
         <div class="inner">
           <div class="logo">
-            <i class="fa-solid fa-igloo"></i>
+            <i class="fa-solid fa-igloo click click-1" onclick="click"></i>
           </div>
           <ul class="menu">
             <li>메뉴1</li>
@@ -31,5 +32,26 @@
           </ul>
         </div>
       </header>
+
+      <script>
+      $('.click').click(function() {
+        if (window.innerWidth < 768) {
+          if ($('.click').hasClass("click-1")) {
+            $('.menu').animate({opacity: '1'});
+            $('.click').addClass('click-2');
+            $('.click').removeClass('click-1');
+          }
+          else {
+            $('.menu').animate({opacity: '0'});
+            $('.click').addClass('click-1')
+            $('.click').removeClass('click-2')
+          }
+        }
+      })
+
+      if (window.innerWidth >= 768) {
+        $('.menu').animate({opacity: '1'});
+      }
+      </script>
 </body>
 </html>
