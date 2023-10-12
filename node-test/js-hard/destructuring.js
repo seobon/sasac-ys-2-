@@ -61,4 +61,34 @@ const xyz = [...word2];
 
 const result = [...abc, ...xyz];
 
-console.log(result);
+// console.log(result);
+
+
+//새로운 딕셔너리 요소를 추가하는 방법으로 자주 쓰이는 방법.
+const obj2 = {
+    name: "lily",
+    gender: "여",
+    age: 99,
+};
+
+const obj3 = {
+    ...obj2,
+    test: "test",
+}
+
+// console.log(obj3);
+
+
+// rest 파라미터, 함수에 파라미터로 사용됨
+
+const values = [10, 20, 30];
+
+function get(a, ...rest) {
+    console.log(a);
+    console.log(rest);
+};
+
+get(...values);
+
+// 위 코드를 설명하면 ...인자는 변수의 값을 스플릿하듯 나누어주는 것이다.
+// 그 중 첫번째 요소는 a에 담고 그 나머지는 ...rest를 이용해 rest에 담는 코드인 것이다.
