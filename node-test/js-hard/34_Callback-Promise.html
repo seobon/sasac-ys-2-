@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //-------------------- 문제 2 콜백 함수 --------------------
+
+        // setTimeout(function () {
+        //     document.body.style.backgroundColor = 'red';
+        //     setTimeout(function () {
+        //         document.body.style.backgroundColor = 'orange';
+        //         setTimeout(function () {
+        //             document.body.style.backgroundColor = 'yellow';
+        //             setTimeout(function () {
+        //                 document.body.style.backgroundColor = 'green';
+        //                 setTimeout(function () {
+        //                     document.body.style.backgroundColor = 'blue';
+        //                 }, 1000)
+        //             }, 1000)
+        //         }, 1000)
+        //     }, 1000)
+        // })
+
+
+        function changeColor(color) {
+            return new Promise((resolve) => {
+                setTimeout(function () {
+                    document.body.style.backgroundColor = color
+                    resolve()
+                }, 1000);
+            });
+        }
+
+        // changeColor("red").then(() => {
+        //     return changeColor('orange');
+        // })
+        // .then(() => {
+        //     return changeColor('yellow');
+        // })
+        // .then(() => {
+        //     return changeColor('green');
+        // })
+        // .then(() => {
+        //     return changeColor('blue');
+        // })
+
+        async function exec() {
+            const color = ['red', 'orange', 'yellow', 'green', 'blue']
+            for (let i = 0; i < color.length; i++) {
+                await changeColor(color[i]);
+                if (i ==  color.length - 1) i = -1;
+            }
+            // await changeColor('red');
+            // await changeColor('orange');
+            // await changeColor('yellow');
+            // await changeColor('green');
+            // await changeColor('blue');
+        }
+
+        exec()
+    </script>
+</body>
+</html>
