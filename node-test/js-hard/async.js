@@ -80,10 +80,10 @@ function goMart() {
   // pay(product, price);
 
 
-async function exec() {
-    goMart();
-    await pickDrink();
-    pay(product, price);
-}
+// async function exec() {
+//     goMart();
+//     await pickDrink();
+//     pay(product, price);
+// }
 
-exec();
+// exec();
