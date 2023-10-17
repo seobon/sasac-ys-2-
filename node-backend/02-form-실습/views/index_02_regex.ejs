@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/post" method="post" id="post">
+        아이디 <input type="text" name="id" oninput="validCheckId(this)" pattern="^([a-z0-9]){5,}$" title="소문자, 숫자로 조합하여 5자리 이상으로 입력" required />
+        <div id="error-id"></div>
+
+        비밀번호 <input type="password" name="pw" oninput="validCheckPw(this)" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" title="영문 숫자 특수기호 조합 8자리 이상으로 입력" required />
+        <div id="error-pw"></div>
+
+        전화번호 <input type="text" name="phoneNum" oninput="validCheckNum(this)" pattern="^(01[01346-9])*-([1-9]{1}[0-9]{2,3})*-([0-9]{4})$" title="010-0000-0000 형식으로 입력" required />
+        <div id="error-num"></div>
+
+        이름 <input type="text" name="name" required/>
+
+        성별 <input type="radio" name="gender" value="여자" id="women" required /> <label for="women">여자</label>
+        <input type="radio" name="gender" value="남자" id="men" required /> <label for="men">남자</label>
+
+        <button type="submit">입력</button>
+    </form>
+
+    <script>
+        function validCheckId(el) {
+            const regexId = /^([a-z0-9]){5,}$/
+            const value = el.value
+            const errorId = document.getElementById("error-id")
+            if (regexId.test(value)) {
+                errorId.innerHTML = ""
+            } else {
+                errorId.innerHTML = "소문자, 숫자로 조합하여 5자리 이상으로 입력"
+            }
+        }
+
+        function validCheckPw(el) {
+            const regexPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+            const value = el.value
+            const errorPw = document.getElementById("error-pw")
+            if (regexPw.test(value)) {
+                errorPw.innerHTML = ""
+            } else {
+                errorPw.innerHTML = "소문자, 숫자로 조합된 8~12자리로 입력"
+            }
+        }
+
+        function validCheckNum(el) {
+            const regexNum = /^(01[01346-9])*-([1-9]{1}[0-9]{2,3})*-([0-9]{4})$/
+            const value = el.value
+            const errorNum = document.getElementById("error-num")
+            if (regexNum.test(value)) {
+                errorNum.innerHTML = ""
+            } else {
+                errorNum.innerHTML = "010-0000-0000 형식으로 입력"
+            }
+        }
+    </script>
+</body>
+</html>
