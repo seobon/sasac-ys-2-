@@ -1,18 +1,17 @@
 // ---------------- case 1)-----------------
 
-const addReceive = require("./02_module_sub.js");
+// const addReceive = require("./02_module_sub.js");
 
-// console.log(addReceive)
+// // console.log(addReceive)
 
-console.log(addReceive(2,7));
+// console.log(addReceive(2,7));
 
-const sum = addReceive(1,9);
-console.log(sum);
+// const sum = addReceive(1,9);
+// console.log(sum);
 
 // ---------------- case 2)-----------------
-// 파일에서 여러 개의 식별자를 객체 형태로 내보내는 경우
-// 모듈을 받아올 때 객체를 그대로 mathReceive로 받음
-// const mathReceive = require("./math.js");
+// const mathReceive = require("./02_module_sub.js");
+// // console.log(mathReceive)
 
 // const sum = mathReceive.addGive(5, 7);
 // console.log(sum);
@@ -20,10 +19,10 @@ console.log(sum);
 
 // ---------------- case 3)-----------------
 
-// 파일에서 여러 개의 식별자를 객체 형태로 내보내는 경우
+
 // 특정 식별자(addGive, minusGive)만 필요한 경우 객체 구조 분해 할당 문법을 통해 가져올 수 있다.
 
-// const { addGive, minusGive } = require("./math.js");
+// const { addGive, minusGive } = require("./02_module_sub.js");
 
 // const sum = addGive(2,3);
 // console.log(sum)
