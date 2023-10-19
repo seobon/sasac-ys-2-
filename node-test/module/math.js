@@ -1,4 +1,4 @@
-// const addGive = (a,b) => a + b;
+const addGive = (a,b) => a + b;
 // const minusGive = (a,b) => a - b;
 // const PI = 3.14;
 
@@ -7,9 +7,9 @@
 //     return a + b;
 // }
 
-module.exports.addGive = (a,b) => a + b;
-module.exports.minusGive = (a,b) => a - b;
-module.exports.PI = 3.14;
+// module.exports.addGive = (a,b) => a + b;
+// module.exports.minusGive = (a,b) => a - b;
+// module.exports.PI = 3.14;
 
 // 아래는 위와 같은 의미의 코드이다.
 // module.exports = {
