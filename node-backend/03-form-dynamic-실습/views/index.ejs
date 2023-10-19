@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form name="register">
+        이름 <input type="text" name="name" value="김서본" />
+        
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="여자" id="women"/> <label for="women">여자</label>
+            <input type="radio" name="gender" value="남자" id="men"/> <label for="men">남자</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>생년월일</legend>
+            <select class="box" id="birthYear"></select>년
+            <select class="box" id="birthMonth"></select>월
+            <select class="box" id="birthDay"></select>일
+        </fieldset>
+
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" name="hobby" value="여행"/> 여행
+            <input type="checkbox" name="hobby" value="패션"/> 패션
+            <input type="checkbox" name="hobby" value="음식"/> 음식
+        </fieldset>
+
+    
+        <div>
+            <button type="button" onclick="axiosGet()">회원가입</button>
+        </div>
+        
+    </form>
+    <h3 id="result"></h3>
+
+    <script>
+        function getData() {
+            const form = document.forms["register"];
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const hobby = []
+
+            for (let hob of form.hobby) {
+                if (hob.checked) hobby.push(hob.value);
+            }
+
+            const data = {
+                name : form.name.value,
+                gender : form.gender.value,
+                birthYear : form.birthYear.value,
+                birthMonth : form.birthMonth.value,
+                birthDay : form.birthDay.value,
+                hobby : hobby,
+            }
+
+            return data
+        }
+
+        function axiosGet() {
+            const data = getData()
+            
+            axios({
+                method: "GET",
+                url: "/axios",
+                params: data
+            }).then((res)=> {
+                const {
+                    name
+                } = res.data
+                $("#result").html(`${name}님 회원가입이 완료되었습니다.`)
+                console.log(res)
+                console.log(res.data)
+                console.log(data.hobby)
+
+            })
+        }
+        
+        const birthYearEl = document.querySelector('#birthYear')
+        isYearOptionExisted = false;
+        birthYearEl.addEventListener('focus', function () {
+            if(!isYearOptionExisted) {
+                isYearOptionExisted = true
+                for(var i = 1940; i <= 2022; i++) {
+                    const YearOption = document.createElement('option')
+                    YearOption.setAttribute('value', i)
+                    YearOption.innerText = i
+                    this.appendChild(YearOption);
+                }
+            }
+        });
+
+        const birthMonthEl = document.querySelector('#birthMonth')
+        isMonthOptionExisted = false;
+        birthMonthEl.addEventListener('focus', function () {
+            if(!isMonthOptionExisted) {
+                isMonthOptionExisted = true
+                for(var i = 1; i <= 12; i++) {
+                    const MonthOption = document.createElement('option')
+                    MonthOption.setAttribute('value', i)
+                    MonthOption.innerText = i
+                    this.appendChild(MonthOption);
+                }
+            }
+        });
+
+        const birthDayEl = document.querySelector('#birthDay')
+        isDayOptionExisted = false;
+        birthDayEl.addEventListener('focus', function () {
+            if(!isDayOptionExisted) {
+                isDayOptionExisted = true
+                for(var i = 1; i <= 31; i++) {
+                    const DayOption = document.createElement('option')
+                    DayOption.setAttribute('value', i)
+                    DayOption.innerText = i
+                    this.appendChild(DayOption);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
