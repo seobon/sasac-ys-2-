@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form name="register">
+        <input type="text" name="id" value="seobon1201" />
+        <input type="password" name="pw" value="1201" />
+        <div>
+            <button type="button" onclick="axiosPost()">로그인</button>
+        </div>
+    </form>
+    <h3 id="result"></h3>
+    
+    <script>
+        function getData() {
+            const form = document.forms["register"];
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const data = {
+                id : form.id.value,
+                pw : form.pw.value,
+            }
+
+            return data
+        }
+        
+        function axiosPost() {
+            const data = getData()
+
+            axios({
+                method: "POST",
+                url: "/axios",
+                data: data
+            }).then((res)=> {
+                if (res.data) {
+                    $("#result").html(`로그인 완료. ${data.id}님 반갑습니다.`);
+                    $("#result").css("color", "blue");
+                } else {
+                    $("#result").html(`아이디 또는 비밀번호를 잘못 입력했습니다.`);
+                    $("#result").css("color", "red");
+                }
+            })
+        }
+    </script>
+</body>
+</html>
