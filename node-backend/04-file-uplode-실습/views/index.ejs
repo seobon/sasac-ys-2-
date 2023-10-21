@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .container {
+            width: 400px;
+            padding: 0px 0px 20px 0px;
+            background-color: gray;
+            border-radius: 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile {
+            width: 300px;
+            margin: 50px 50px 0px 50px;
+        }
+    </style>
+</head>
+<body>
+    <h4>실습1 파일 업로드</h4>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="text" name="id" placeholder="아이디" value="eunseo527"/>
+        <br />
+        <input type="password" name="pw" placeholder="비밀번호" value="0527"/>
+        <br />
+        <input type="text" name="name" placeholder="이름" value="손주연"/>
+        <br />
+        <input type="number" name="age" placeholder="나이" value="26"/>
+        <br />
+        <input type="file" name="profile" />
+        <br />
+        <br />
+        <button type="submit">회원가입</button>
+    </form>
+
+    <h4>실습2 파일 업로드(동적 폼 전송)</h4>
+    <form name="dynamic-upload">
+        <input type="text" name="id" placeholder="아이디" value="luda206"/>
+        <br />
+        <input type="password" name="pw" placeholder="비밀번호" value="0206"/>
+        <br />
+        <input type="text" name="name" placeholder="이름" value="이루다"/>
+        <br />
+        <input type="number" name="age" placeholder="나이" value="27"/>
+        <br />
+        <input type="file" name="profile" />
+        <br />
+        <br />
+        <button type="button" onclick="dynamicUpload()">회원가입</button>
+    </form>
+    <div id="result"></div>
+
+
+    <script>
+        function dynamicUpload() {
+            const form = document.forms["dynamic-upload"];
+
+            const formData = new FormData();
+            formData.append("id", form.id.value);
+            formData.append("pw", form.pw.value);
+            formData.append("name", form.name.value);
+            formData.append("age", form.age.value);
+            formData.append("profile", form.profile.files[0]);
+
+            console.log(formData)
+
+            axios({
+                method: "POST",
+                url: "/dynamic",
+                data: formData,
+                Headers: {
+                    "Content-type" : "multipart/form-data"
+                }
+            }).then((res) => {
+                const result = document.getElementById("result")
+                result.innerHTML =
+                `<div class="container">
+                    <img src="/${res.data.src}" class="profile"/>
+                    <div>${res.data.id}님 환영합니다!</div>
+                    <div>비밀번호: ${res.data.pw}</div>
+                    <div>이름: ${res.data.name}</div>
+                    <div>나이: ${res.data.age}</div>
+                </div>`
+            })
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <!-- 일반 폼 전송을 이용해서 파일 업로드하기 -->
+    <!-- enctype="application/x-www-form-urlencoded"(기본값) -->
+    <!-- 파일을 전송하려면 multipart/form-data 로 변경해야함 -->
+    <h2>가장 기본적인 설정</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="userfile" />
+        <br />
+        <input type="text" name="title" />
+        <br />
+        <button type="submit"> 업로드</button>
+    </form>
+
+    <h2>multer stotage를 이용한 설정</h2>
+    <form action="/upload/detail" method="post" enctype="multipart/form-data">
+        <input type="file" name="userfile" />
+        <br />
+        <input type="text" name="title" />
+        <br />
+        <button type="submit"> 업로드</button>
+    </form>
+
+    <h2>multer 파일을 여러 개 (하나의 input 이용)</h2>
+    <form action="/upload/array" method="post" enctype="multipart/form-data">
+        <!-- input type file의 multiple 속성은 여러 개의 파일을 선택할 수 있게 함  -->
+        <input type="file" name="userfile" multiple />
+        <br />
+        <input type="text" name="title" />
+        <br />
+        <button type="submit"> 업로드</button>
+    </form>
+
+    
+    <h2>multer 파일을 여러 개 (여러 개의 input 이용)</h2>
+    <form action="/upload/fields" method="post" enctype="multipart/form-data">
+        <input type="file" name="userfile1" multiple />
+        <br />
+        <input type="text" name="title1" />
+        <br />
+        <input type="file" name="userfile2" />
+        <br />
+        <input type="text" name="title2" />
+        <br />
+        <button type="submit"> 업로드</button>
+    </form>
+
+
+
+
+
+    <!-- fetch를 이용한 동적 폼 전송의 content-type 지정 -->
+    <script>
+
+    </script>
+</body>
+</html>
