@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+
+</head>
+<body>
+    <form name="form-membership">
+        <fieldset>
+            <legend>실습</legend>
+            <br />
+            <input type="text" name="id" placeholder="ID" />
+            <br />
+            <input type="password" name="pw" placeholder="Password" />
+            <br />
+            <br />
+            <button type="button" onclick="makeMembership()">회원가입</button>
+            <button type="button" onclick="login()">로그인</button>
+            <button type="button" onclick="infoUpdate()">정보 수정하기</button>
+            <button type="button" onclick="deleteMembership()">회원 탈퇴</button>
+        </fieldset>
+    </form>
+
+    <script>
+        function makeMembership () {
+            const form = document.forms["form-membership"]
+            const data = {
+                membershipId: form.id.value,
+                password: form.pw.value,
+            }
+
+            axios({
+                method : "POST",
+                url : "/membership",
+                data : data
+            }).then ( (res) => {
+                // 응답으로 id를 받아와 ㅇㅇ님 회원가입이 완료되었습니다.
+                alert(`${res}님 회원가입이 완료되었습니다.`);
+            })
+        }
+    </script>
+</body>
+</html>
