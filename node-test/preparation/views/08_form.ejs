@@ -6,11 +6,116 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>로그인</h1>
-    <!-- action : 요청을 보낼 주소(내 서버를 쓴다면 도메인은 생략해도 되지만, 외부 서버를 쓴다면 도메인도 써야한다.) -->
-    <!-- ex) http://localhost:8000/get/test 이라는 곳으로 보내고 싶다면 action="/get/test" -->
-    <!-- method : 어떤 방식의 요청을 사용할지 ( get or post) -->
-    <form action="/get" method="get" target="_blank" name="login">
+    <!-- <h1>폼 요소 - input</h1>
+    <form action="/test" method="get"> -->
+        <!-- <input />
+        <br />
+        <input type="text" name="inputTest" readonly autofocus placeholder="placeholder" />
+        <br />
+        <input type="text" value="text" />
+        <br /> -->
+        <!-- <input type="radio" name="age" value="10"/> 10대
+        <input type="radio" name="age" value="20"/> 20대
+        <input type="radio" name="age" value="30"/> 30대
+        <input type="radio" name="age" value="40"/> 40대
+        <br />
+        <input type="checkbox" name="exercise" value="running"/> 러닝
+        <input type="checkbox" name="exercise" value="workout"/> 헬스
+        <input type="checkbox" name="exercise" value="boxing"/> 복싱
+        <input type="checkbox" name="exercise" value="jiujitsu"/> 주짓수
+        <br /> -->
+        <!-- <input type="button" value="button" />
+        <br />
+        <input type="color" />
+        <br />
+        <input type="date" />
+        <br />
+        <input type="datetime" />
+        <br />
+        <input type="datetime-local" />
+        <br />
+        <input type="email" value="email" />
+        <br />
+        <input type="file" />
+        <br />
+        <input type="hidden" />
+        <br />
+        <input type="image" />
+        <br />
+        <input type="month" />
+        <br />
+        <input type="number" />
+        <br />
+        <input type="password" value="password" />
+        <br />
+        <input type="range" />
+        <br />
+        <input type="reset" />
+        <br />
+        <input type="search" value="search"/>
+        <br />
+        <input type="submit" />
+        <br />
+        <input type="tel" value="tel"/>
+        <br />
+        <input type="time" />
+        <br />
+        <input type="url" value="url"/>
+        <br />
+        <input type="week" /> -->
+    <!-- </form> -->
+
+
+    <!-- <h1>폼 요소 - select</h1>
+    <form action="/test" method="get">
+        <select>
+            <option>이루리</option>
+            <option>너에게 닿기를</option>
+            <option>비밀이야</option>
+            <option>부탁해</option>
+        </select>
+    </form> -->
+
+
+    <!-- <h1>폼 요소 - label</h1>
+    <form action="/test" method="get">
+        <label>ID: <input type="text"/></label>
+        <br />
+        <label>PASSWORD: <input type="password"></label>
+        <br />
+        <input type="radio" name="age" id="10" value="10"/> <label for="10">10대</label>
+        <input type="radio" name="age" id="20" value="20"/> <label for="20">20대</label>
+        <input type="radio" name="age" id="30" value="30"/> <label for="30">30대</label>
+        <input type="radio" name="age" id="40" value="40"/> <label for="40">40대</label>
+    </form> -->
+
+    <!-- <h1>폼 요소 - fieldset legend</h1>
+    <form action="/test" method="get">
+        <fieldset>
+            <legend>legend</legend>
+            <input type="text" name="id" />
+            <input type="password" name="pw" />
+        </fieldset>
+    </form> -->
+
+
+    <h1>GET 요청</h1>
+    <form action="/get" method="get">
+        <input type="text" name="id" placeholder="ID"/>
+        <input type="password" name="pw" placeholder="Password">
+        <button type="submit">제출</button>
+    </form>
+
+    <h1>POST 요청</h1>
+    <form action="/post" method="post">
+        <input type="text" name="id" placeholder="ID"/>
+        <input type="password" name="pw" placeholder="Password">
+        <button type="submit">제출</button>
+    </form>
+
+
+    <!-- <h1>로그인</h1>
+    <form action="/test" method="get" target="_blank" name="login">
         <fieldset>
             <legend>로그인 정보</legend>
             <input type="text" name="id" />
@@ -19,20 +124,18 @@
         <input type="radio" name="gender" value="여자" id="women"/> <label for="women">여자</label>
         <input type="radio" name="gender" value="남자" id="men"/> <label for="men">남자</label>
         <button type="submit">제출</button>
-        <!-- 늘 버튼의 타입을 버튼으로 설정했지만 버튼의 기본값은 submit이다. -->
-        <!-- 버튼의 타입이 submit인 경우 정말 제출의 기능을 한다. -->
-    </form>
+    </form> -->
 
-    <h1>회원가입 get 요청</h1>
-    <form action="/hwgi" method="get">
+    <!-- <h1>회원가입 get 요청</h1>
+    <form action="/get" method="get">
         <input type="text" name="id" />
         <input type="password" name="pw" />
         <input type="text" name="name" />
         <input type="text" name="email" />
         <button type="submit">제출</button>
-    </form>
+    </form> -->
 
-    <h1>회원가입 post 요청</h1>
+    <!-- <h1>회원가입 post 요청</h1>
     <form action="/post/ver2" method="post">
         <input type="text" name="id" pattern="^([a-zA-Z0-9가-힣]){4,12}$" title="소문자, 대문자, 한글, 숫자로 조합된 4~12자리로 입력" required />
         <input type="password" name="pw" oninput="validCheckPw(this)"/>
@@ -41,9 +144,9 @@
         <input type="number" min="5" max="10" placeholder="숫자" />
         <input type="text" name="email" />
         <button type="submit">제출</button>
-    </form>
+    </form> -->
 
-    <script>
+    <!-- <script>
         // console.log(document.forms["login"])
         // console.dir(document.forms["login"])
         // 콘솔을 찍는 새로운 방법
@@ -63,6 +166,6 @@
             }
         }
 
-    </script>
+    </script> -->
 </body>
 </html>
