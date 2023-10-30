@@ -12,9 +12,9 @@
         <br />
         <input type="text" name="inputTest" readonly autofocus placeholder="placeholder" />
         <br />
-        <input type="text" value="text" />
-        <br /> -->
-        <!-- <input type="radio" name="age" value="10"/> 10대
+        <input type="text" placeholder="text" />
+        <br />
+        <input type="radio" name="age" value="10"/> 10대
         <input type="radio" name="age" value="20"/> 20대
         <input type="radio" name="age" value="30"/> 30대
         <input type="radio" name="age" value="40"/> 40대
@@ -23,20 +23,20 @@
         <input type="checkbox" name="exercise" value="workout"/> 헬스
         <input type="checkbox" name="exercise" value="boxing"/> 복싱
         <input type="checkbox" name="exercise" value="jiujitsu"/> 주짓수
-        <br /> -->
-        <!-- <input type="button" value="button" />
+        <br />
+        <input type="button" value="button" />
         <br />
         <input type="color" />
         <br />
         <input type="date" />
         <br />
-        <input type="datetime" />
+        <input type="datetime" placeholder="datetime" />
         <br />
         <input type="datetime-local" />
-        <br />
-        <input type="email" value="email" />
-        <br />
-        <input type="file" />
+        <br /> -->
+        <!-- <input type="email" placeholder="email" />
+        <br /> -->
+        <!-- <input type="file" />
         <br />
         <input type="hidden" />
         <br />
@@ -44,25 +44,25 @@
         <br />
         <input type="month" />
         <br />
-        <input type="number" />
+        <input type="number" placeholder="number" />
         <br />
-        <input type="password" value="password" />
+        <input type="password" placeholder="password" />
         <br />
         <input type="range" />
         <br />
         <input type="reset" />
         <br />
-        <input type="search" value="search"/>
-        <br />
-        <input type="submit" />
-        <br />
-        <input type="tel" value="tel"/>
+        <input type="search" placeholder="search"/>
+        <br /> -->
+        <!-- <br />
+        <input type="tel" placeholder="tel"/>
         <br />
         <input type="time" />
-        <br />
-        <input type="url" value="url"/>
-        <br />
-        <input type="week" /> -->
+        <br /> -->
+        <!-- <input type="url" placeholder="url"/>
+        <br /> -->
+        <!-- <input type="week" /> -->
+        <!-- <input type="submit" /> -->
     <!-- </form> -->
 
 
@@ -99,7 +99,7 @@
     </form> -->
 
 
-    <h1>GET 요청</h1>
+    <!-- <h1>GET 요청</h1>
     <form action="/get" method="get">
         <input type="text" name="id" placeholder="ID"/>
         <input type="password" name="pw" placeholder="Password">
@@ -111,61 +111,47 @@
         <input type="text" name="id" placeholder="ID"/>
         <input type="password" name="pw" placeholder="Password">
         <button type="submit">제출</button>
+    </form> -->
+
+
+    <!-- <h1>유효성 검사</h1>
+    <form action="/post/membership" method="post"> -->
+        <!-- <input type="text" name="required" required /> -->
+        <!-- <input type="text" name="minlength" minlength="4" placeholder="minlength" />
+        <input type="text" name="maxlength" maxlength="12" placeholder="maxlength" /> -->
+        <!-- <input type="number" min="5" max="10" />
+        <button type="submit">제출</button>
+    </form> -->
+
+
+    <h1>회원가입 post 요청</h1>
+    <form action="/post/membership" method="post">
+        <!-- <input type="text" name="id" pattern="^([a-zA-Z0-9가-힣]){4,12}$" title="소문자, 대문자, 한글, 숫자로 조합된 4~12자리로 입력" placeholder="ID" required />
+        <br /> -->
+        <input type="password" name="pw" oninput="validCheckPw(this)" placeholder="PASSWORD" />
+        <br />
+        <div id="valid-pw"></div>
+        <button type="submit">제출</button>
     </form>
 
-
-    <!-- <h1>로그인</h1>
-    <form action="/test" method="get" target="_blank" name="login">
-        <fieldset>
-            <legend>로그인 정보</legend>
-            <input type="text" name="id" />
-            <input type="password" name="pw">
-        </fieldset>
-        <input type="radio" name="gender" value="여자" id="women"/> <label for="women">여자</label>
-        <input type="radio" name="gender" value="남자" id="men"/> <label for="men">남자</label>
-        <button type="submit">제출</button>
-    </form> -->
-
-    <!-- <h1>회원가입 get 요청</h1>
-    <form action="/get" method="get">
-        <input type="text" name="id" />
-        <input type="password" name="pw" />
-        <input type="text" name="name" />
-        <input type="text" name="email" />
-        <button type="submit">제출</button>
-    </form> -->
-
-    <!-- <h1>회원가입 post 요청</h1>
-    <form action="/post/ver2" method="post">
-        <input type="text" name="id" pattern="^([a-zA-Z0-9가-힣]){4,12}$" title="소문자, 대문자, 한글, 숫자로 조합된 4~12자리로 입력" required />
-        <input type="password" name="pw" oninput="validCheckPw(this)"/>
-        <div id="error-pw"></div>
-        <input type="text" name="name" minlength="4" />
-        <input type="number" min="5" max="10" placeholder="숫자" />
-        <input type="text" name="email" />
-        <button type="submit">제출</button>
-    </form> -->
-
-    <!-- <script>
-        // console.log(document.forms["login"])
+    <script>
         // console.dir(document.forms["login"])
-        // 콘솔을 찍는 새로운 방법
 
         function validCheckPw(el) {
             const regexPw = /^([a-z0-9]){8,12}$/
             const value = el.value
-            const error = document.getElementById("error-pw")
-            // regexPw.test("검사하고 싶은 값") => true or false return
+            const valid = document.getElementById("valid-pw")
+
             if (regexPw.test(value)) {
-                error.innerHTML = ""
-                console.log("정규식 일치")
-                alert("정규식 일치")
+                // console.log("정규식 일치")
+                // console.dir("정규식 일치")
+                // alert("정규식 일치")
+                valid.innerHTML = "양식이 일치합니다."
             } else {
-                error.innerHTML = "소문자, 숫자로 조합된 8~12자리로 입력"
+                valid.innerHTML = "소문자, 숫자로 조합된 8~12자리로 입력"
                 console.log("정규식 불일치")
             }
         }
-
-    </script> -->
+    </script>
 </body>
 </html>
