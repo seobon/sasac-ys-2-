@@ -1,9 +1,18 @@
-const express = require("express");
-const router = express.Router();
-const controller = require("../controller/Cmembership")
+const express = require('express')
+const user = require('../controller/Cuser')
+const router = express.Router()
 
-router.get("/", controller.home);
+router.get('/', user.index)
 
-router.post("/membership", controller.membership);
+router.get('/signup', user.signup)
+router.post('/signup', user.post_signup)
 
-module.exports = router;
+router.get('/signin', user.signin)
+router.post('/signin', user.post_signin)
+// id pw가 포함되어 있기에 로그인은 보통 post를 사용
+
+router.post('/profile', user.profile)
+router.patch('/profile/edit/:id', user.profile_edit)
+router.delete('/profile/delete/:id', user.profile_delete)
+
+module.exports = router
