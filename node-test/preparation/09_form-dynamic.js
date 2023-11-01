@@ -21,15 +21,19 @@ app.post("/ajax", function (req, res) {
 });
 
 app.get("/axios", function (req, res) {
-    console.log(req.query);
+    // console.log("req.query: ", req.query);
+    const data = {
+        ...req.query,
+        msg: "axios get! 반가워요.",
+    }
     res.send(req.query);
 });
 
 app.post("/axios", function (req, res) {
-    console.log(req.body);
+    // console.log("req.body: ", req.body);
     const data = {
         ...req.body,
-        msg: "반가워요",
+        msg: "axios post! 반가워요.",
     }
     // {
     //     id: .
@@ -40,12 +44,12 @@ app.post("/axios", function (req, res) {
 });
 
 app.get("/fetch", function (req, res) {
-    console.log(req.query);
+    console.log("req.query: ", req.query);
     res.send(req.query);
 });
 
 app.post("/fetch", function (req, res) {
-    console.log(req.body);
+    console.log("req.body: ", req.body);
     res.send(req.body);
 });
 
