@@ -96,20 +96,16 @@
         // };
 
 
-        // axios 함수는 promise 객체를 return
         function axiosGet() {
             const data = getData();
             
             axios({
                 method: "GET",
                 url: "/axios",
-                // axios는 get 요청으로 데이터 보낼 때 params에 정보를 담아 보냄
                 params: data
-                // params 대신 url에 query를 직접 작성해도 됨
             }).then((res)=> {
-                // 서버에서 보내준 응답이 res에 담김
-                console.log("res:", res);
-                console.log("res.data:", res.data);
+                // console.log("GET res:", res);
+                // console.log("GET res.data:", res.data);
                 const {
                     name
                 } = res.data
@@ -121,17 +117,18 @@
         
             function axiosPost() {
             const data = getData();
-            // data 에서 받아오는 값이 false | object (객체 형태)
 
             axios({
                 method: "POST",
                 url: "/axios",
-                data: data, // post일 경우 서버에 데이터를 보낼 때, data 키에 담아서 보내면 됨.
+                data: data
             }).then((res) => {
-                console.log(res.data);
+                // console.log("POST res:", res);
+                // console.log("POST res.data:", res.data);
                 const {
                     name
                 } = res.data
+                
                 $("#result").html(`axios post 요청 성공 ${name}님 환영합니다.`);
             });
         };
