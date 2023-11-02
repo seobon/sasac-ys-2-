@@ -19,18 +19,21 @@
         <br />
         <input type="text" name="name" placeholder="이름" required value="손주연" />
 
+        <!-- <input type="submit" /> -->
+        <!-- <button type="submit">제출</button> -->
+
         <div>
             <!-- <button type="button" onclick="ajaxGet()">ajax get 전송</button>
             <br />
             <button type="button" onclick="ajaxPost()">ajax post 전송</button>
             <br /> -->
-            <button type="button" onclick="axiosGet()">axios get 전송</button>
+            <!-- <button type="button" onclick="axiosGet()">axios get 전송</button>
             <br />
             <button type="button" onclick="axiosPost()">axios post 전송</button>
-            <!-- <br />
+            <br /> -->
             <button type="button" onclick="fetchGet()">fetch get 전송</button>
             <br />
-            <button type="button" onclick="fetchPost()">fetch post 전송</button> -->
+            <button type="button" onclick="fetchPost()">fetch post 전송</button>
         </div>
         
     </form>
@@ -40,14 +43,14 @@
         function getData() {
             const form = document.forms["register"];
 
-            // if (!form.checkValidity()) { // checkValidity 폼의 유효성 검사를 해서 boolean 값 반환
-            //     form.reportValidity(); // reportValidity 유효성 검사를 통과하지 못한 input에 대해 보고함(보고서를 띄움)
-            //     // 위 코드가 보고하는 코드일지라도 함수를 멈출 수는 없다.
-            //     return false;
-            //     // 함수 자체가 리턴을 만나면 다음 코드를 읽지 않는다.
-            //     // 유효성 검사가 실패하며 리턴한다. return만 써도 상관 없다.
+            if (!form.checkValidity()) { // checkValidity 폼의 유효성 검사를 해서 boolean 값 반환
+                form.reportValidity(); // reportValidity 유효성 검사를 통과하지 못한 input에 대해 보고함(보고서를 띄움)
+                // 위 코드가 보고하는 코드일지라도 함수를 멈출 수는 없다.
+                return false;
+                // 함수 자체가 리턴을 만나면 다음 코드를 읽지 않는다.
+                // 유효성 검사가 실패하며 리턴한다. return만 써도 상관 없다.
 
-            // }
+            }
 
             const data = {
                 id : form.id.value,
@@ -96,48 +99,53 @@
         // };
 
 
-        function axiosGet() {
-            const data = getData();
-            
-            axios({
-                method: "GET",
-                url: "/axios",
-                params: data
-            }).then((res)=> {
-                // console.log("GET res:", res);
-                // console.log("GET res.data:", res.data);
-                const {
-                    name
-                } = res.data
 
-                $("#result").html(`axios get 요청 성공 ${name}님 환영합니다.`);
-            });
-        };
-
-
-        function axiosPost() {
-            const data = getData();
-
-            axios({
-                method: "POST",
-                url: "/axios",
-                data: data
-            }).then((res) => {
-                // console.log("POST res:", res);
-                // console.log("POST res.data:", res.data);
-                const {
-                    name
-                } = res.data
-                
-                $("#result").html(`axios post 요청 성공 ${name}님 환영합니다.`);
-            });
-        };
-
-        // // 프로미스 기반이라 어싴크 어웨이 사용 가능
-        // async function axiosPost() {
+        // function axiosGet() {
         //     const data = getData();
-        //     // data 에서 받아오는 값이 false | object (객체 형태)
+            
+        //     axios({
+        //         method: "GET",
+        //         url: "/axios",
+        //         params: data
+        //     }).then((res)=> {
+        //         // console.log("GET res:", res);
+        //         // console.log("GET res.data:", res.data);
+        //         const {
+        //             name
+        //         } = res.data
 
+        //         $("#result").html(`axios get 요청 성공 ${name}님 환영합니다.`);
+        //     });
+        // };
+
+
+        // function axiosPost() {
+        //     const data = getData();
+
+        //     axios({
+        //         method: "POST",
+        //         url: "/axios",
+        //         data: data
+        //     }).then((res) => {
+        //         console.log("POST res:", res);
+        //         console.log("POST res.data:", res.data.msg);
+        //         const {
+        //             name
+        //         } = res.data
+                
+        //         $("#result").html(`axios post 요청 성공 ${name}님 환영합니다.`);
+        //     });
+        // };
+
+
+        // Async/Await
+        // async function axiosPost() {
+
+        //     // const regex = /^[a-z0-9]{5,}$/
+        //     // regex.test(form.id.value)
+
+        //     const data = getData();
+            
         //     if (!data) return;
 
         //     const res = await axios({
@@ -148,40 +156,118 @@
 
         //     console.log("res:", res)
         //     console.log("res.data:", res.data)
-        //     $("#result").html(`axios post 요청 성공 ${name}님 환영합니다.`)
+        //     $("#result").html(`axios post 요청 (Async/Await) 성공 ${res.data.name}님 환영합니다.`)
         // }
     
-        // // 패치도 프로미스 기반이라 어싴크 어웨이 사용 가능
-        // // function fetchGet() {
-        // //     const data = getData();
-        // //     if (!data) return;
+        async function fetchGet() {
+        const data = getData();
+        if (!data) return;
 
-        // //     // fatch(url. option 객체)
-        // //     // url -> action
-        // //     // option 객체에 method가 있음
-        // //     // fetch는 method 의 기본값이 GET. 즉 겟방식은 메소드를 안써도 됨
-        // //     // 엑시오는 정보를 파람스에 보냈는데 안타깝게 패치는 get요청시 데이터를 무조건 쿼리로 만들어서 url과 함께 전송해야한다
-        // //     // const urlQuery = `id=${data.id}&name=${data.name}&pw=${data.pw}`
-        // //     // 쿼리 만들기 솔직히 좀 귀찮, 쿼리를 만들어주는 함수
-        // //     const urlQuery = new URLSearchParams(data).toString();
-        // //     // URLSearchParams는 파라미터를 관리하는 클래스고, toString을 사용하면 문자열로 쿼리 형태가 된다.
+        // fetch(url, option 객체)
+        // url -> action 
+        // option 객체에 method가 있음.
+        // fetch는 method 기본값 get
+        // fetch는 get 요청 시 데이터를 query로 만들어서 url과 함께 전송
+        // const urlQuery = `id=${data.id}&name=${data.naem}&pw=${data.pw}`
+        const urlQuery = new URLSearchParams(data).toString();
 
-        // //     fetch(`/fatch?${urlQuery}`,
-            
-        // //     )
-        // //     // .then((res) => {
-        // //     //     console.log("원본", res);
-        // //     //     console.log("파싱", res.json());
-        // //     // //     return res.json()
-        // //     // // }).then((res) => {
-        // //     // //     // 위에서 파싱 해서 리턴하고
-        // //     // //     console.log(res);
-        // //     // })
+        // --------------- 방법 1 (then 체이닝)--------------------
+        // fetch(`/fetch?${urlQuery}`)
+        //   .then((res) => {
+        //     console.log("원본", res)
+        //     // json() 메소드를 이용해서 parsing 해야 함. 
+        //     // json() 은 promise 기반
+        //     // const data = res.json();
+        //     // console.log(data) // Promise pending (undefined) (문제 발생)
+        //     return res.json()
+        //   }).then((res) => {
+        //     // 위에서 파싱 해서 return하고 있기 때문에,
+        //     // 이 함수의 res는 서버에서 여러분들이 응답한 객체
+        //     console.log("파싱", res)
+        //   })
 
-        // //     const oriRes = await fetch(`/fetch?${urlQuery}`)
-        // //     const res = await oriRes.json()
-        // //     console.log(res)
-        // // }
+        // --------------- 방법 2 (반만 async / await) --------------------
+        // fetch(`/fetch?${urlQuery}`).then(async (res) => {
+        //   console.log("원본", res);
+        //   console.log("파싱", await res.json());
+        //   // 응답을 파싱해야함. 
+        //   // .json(), .text(), 
+        // })
+
+        // --------------- 방법 3 (async / await)--------------------
+        const oriRes = await fetch(`/fetch?${urlQuery}`)
+        const res = await oriRes.json()
+        console.log(res)
+        $("#result").html(`fetch get 요청 성공 ${res.name}님 환영합니다.`)
+
+      }
+
+      function fetchPost() {
+        const data = getData()
+        if (!data) return;
+
+        // 원래는 content-type 기본값 사용 : application/x-www-form-urlencoded 
+        // 하지만, fetch post 요청 시에 기본값을 사용했을 때 동작을 안 함
+        // content-type을 application/json 형태로 변경
+        fetch("/fetch", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data) // stringify: data 객체 (js)를 json 형태로 변경
+        }).then((res) => {
+          return res.json()
+        }).then((res) => {
+          console.log(res)
+          $("#result").html(`fetch post 요청 성공 ${res.name}님 환영합니다.`)
+        })
+
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+        // async function fetchGet() {
+        //     const data = getData();
+        //     if (!data) return;
+
+        //     // fatch(url. option 객체)
+        //     // url -> action
+        //     // option 객체에 method가 있음
+        //     // fetch는 method 의 기본값이 GET. 즉 겟방식은 메소드를 안써도 됨
+        //     // 엑시오는 정보를 파람스에 보냈는데 안타깝게 패치는 get요청시 데이터를 무조건 쿼리로 만들어서 url과 함께 전송해야한다
+        //     // const urlQuery = `id=${data.id}&name=${data.name}&pw=${data.pw}`
+        //     // 쿼리 만들기 솔직히 좀 귀찮, 쿼리를 만들어주는 함수
+        //     const urlQuery = new URLSearchParams(data).toString();
+        //     // URLSearchParams는 파라미터를 관리하는 클래스고, toString을 사용하면 문자열로 쿼리 형태가 된다.
+
+        //     fetch(`/fatch?${urlQuery}`)
+        //     .then((res) => {
+        //         console.log("원본", res);
+        //     // json() 메소드를 이용해서 parsing 해야 함. 
+        //     // json() 은 promise 기반
+        //     // const data = res.json();
+        //     // console.log(data) // Promise pending (undefined) (문제 발생)
+        //         return res.json()
+        //     }).then((res) => {
+        //         // 위에서 파싱 해서 리턴하고
+        //         // console.log(res);
+        //         console.log("파싱", res.json());
+
+        //     })
+
+        //     // const oriRes = await fetch(`/fetch?${urlQuery}`)
+        //     // const res = await oriRes.json()
+        //     // console.log(res)
+        // }
 
         // // 원래는 기본값 사용 : application/x-www-form-urlencoded
         // // 하지만, fetch post 요청 시에 기본겂울 사용했을 때 동작을 안함
