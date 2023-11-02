@@ -26,7 +26,8 @@ app.get("/axios", function (req, res) {
         ...req.query,
         msg: "axios get! 반가워요.",
     }
-    res.send(req.query);
+    res.send(data);
+    // res.send(req.query);
 });
 
 app.post("/axios", function (req, res) {
