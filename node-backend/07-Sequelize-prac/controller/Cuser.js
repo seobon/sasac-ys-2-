@@ -19,6 +19,8 @@ exports.post_signup = (req, res) => {
   User.create(data).then((result) => {
     // console.log("create result: ", result)
     res.send(result)
+  }).catch((err) => {
+    res.send({ result: false });
   });
 };
 
@@ -71,13 +73,15 @@ exports.profile_edit = (req, res) => {
         id: data.id,
     },
   }).then((result) => {
-      // console.log("update result: ", result);
-      res.send({result: true});
+      // console.log("update result: ", result); // [ 1 ] or [ 0 ]
+      // 업데이트 여부에 따라서 result에 [ 1 ] 혹은 [ 0 ]이 담김
+      // 따라서 if 문을 이용하여 result의 0번 인덱스가 1일 경우의 성공, 그렇지 않으면 실패.
+      // 1, 0 / true, false
+      // null, undefined => false
+      if (result) res.send({result: true});
+      else res.send({result: false});
   });
 }
-
-
-
 
 exports.profile_delete = (req, res) => {
   User.destroy({
@@ -85,7 +89,8 @@ exports.profile_delete = (req, res) => {
           id: req.params.id,
       },
   }).then((result) => {
-      console.log("destroy result: ", result);
-      res.send({result: true});
+      // console.log("destroy result: ", result);
+      if (result) res.send({result: true});
+      else res.send({result: false});
   });
 };
