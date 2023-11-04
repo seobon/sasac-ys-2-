@@ -31,6 +31,12 @@
           if (res.data.result == true) {
             alert("로그인 성공");
 
+
+
+            document.location.href = "/user/profile";
+
+
+
             var form_info = document.forms["form-info"];
             form_info.id.value = res.data.id;
             form_info.submit();
@@ -48,7 +54,13 @@
         <h1 class="card__heading">
           <span> Welcome</span>
         </h1>
-        <form name="form-info" action="/user/profile" method="POST">
+
+
+
+        <form name="form-info" action="/user/profile" method="GET">
+
+
+
           <input type="hidden" name="id">
         </form>
         <form class="card__form" name="form-login">
