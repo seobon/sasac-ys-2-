@@ -48,6 +48,12 @@ exports.post_signin = (req, res) => {
 exports.profile = (req, res) => {
   // console.log("여기요", req.body)
 
+
+  
+  console.log(req.session.user)
+
+
+
   User.findOne({
       where: {
         id: req.body.id,
@@ -56,7 +62,12 @@ exports.profile = (req, res) => {
       // console.log("findOne result: ", result);
       // console.log("findOne result.userid: ", result.userid);
 
+
+
       if (result != "null") res.render('profile', { data: result })
+
+
+
       else res.redirect('/user/signin')
   });
 }
