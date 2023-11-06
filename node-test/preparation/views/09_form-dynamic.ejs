@@ -159,6 +159,8 @@
         //     $("#result").html(`axios post 요청 (Async/Await) 성공 ${res.data.name}님 환영합니다.`)
         // }
     
+
+
         async function fetchGet() {
         const data = getData();
         if (!data) return;
@@ -169,128 +171,59 @@
         // fetch는 method 기본값 get
         // fetch는 get 요청 시 데이터를 query로 만들어서 url과 함께 전송
         // const urlQuery = `id=${data.id}&name=${data.naem}&pw=${data.pw}`
-        const urlQuery = new URLSearchParams(data).toString();
+
+       const urlQuery = new URLSearchParams(data).toString();
 
         // --------------- 방법 1 (then 체이닝)--------------------
         // fetch(`/fetch?${urlQuery}`)
         //   .then((res) => {
-        //     console.log("원본", res)
-        //     // json() 메소드를 이용해서 parsing 해야 함. 
-        //     // json() 은 promise 기반
-        //     // const data = res.json();
-        //     // console.log(data) // Promise pending (undefined) (문제 발생)
+        //     console.log("원본", res);
+        //     // const data = res.json(); // error
+        //     // console.log(data) // error
         //     return res.json()
         //   }).then((res) => {
-        //     // 위에서 파싱 해서 return하고 있기 때문에,
-        //     // 이 함수의 res는 서버에서 여러분들이 응답한 객체
-        //     console.log("파싱", res)
-        //   })
+        //     console.log("파싱", res);
+        //     $("#result").html(`fetch get 요청 성공 ${res.name}님 환영합니다.`)
+        //   });
+        // };
+
 
         // --------------- 방법 2 (반만 async / await) --------------------
-        // fetch(`/fetch?${urlQuery}`).then(async (res) => {
-        //   console.log("원본", res);
-        //   console.log("파싱", await res.json());
-        //   // 응답을 파싱해야함. 
-        //   // .json(), .text(), 
-        // })
+        
+    //     fetch(`/fetch?${urlQuery}`).then(async (res) => {
+    //         // console.log("원본", res);
+    //         // console.log("파싱", await res.json());
+    //         // console.log("파싱", await res.text());
+    //         const data = await res.json();
+    //         $("#result").html(`fetch get 요청 성공 ${data.name}님 환영합니다.`)
+    //     });
+    // };
+
 
         // --------------- 방법 3 (async / await)--------------------
         const oriRes = await fetch(`/fetch?${urlQuery}`)
         const res = await oriRes.json()
         console.log(res)
         $("#result").html(`fetch get 요청 성공 ${res.name}님 환영합니다.`)
-
-      }
+      };
 
       function fetchPost() {
         const data = getData()
         if (!data) return;
 
-        // 원래는 content-type 기본값 사용 : application/x-www-form-urlencoded 
-        // 하지만, fetch post 요청 시에 기본값을 사용했을 때 동작을 안 함
-        // content-type을 application/json 형태로 변경
         fetch("/fetch", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(data) // stringify: data 객체 (js)를 json 형태로 변경
+          body: JSON.stringify(data)
         }).then((res) => {
           return res.json()
         }).then((res) => {
           console.log(res)
           $("#result").html(`fetch post 요청 성공 ${res.name}님 환영합니다.`)
-        })
-
-      }
-
-
-
-
-
-
-
-
-
-
-
-
-        // async function fetchGet() {
-        //     const data = getData();
-        //     if (!data) return;
-
-        //     // fatch(url. option 객체)
-        //     // url -> action
-        //     // option 객체에 method가 있음
-        //     // fetch는 method 의 기본값이 GET. 즉 겟방식은 메소드를 안써도 됨
-        //     // 엑시오는 정보를 파람스에 보냈는데 안타깝게 패치는 get요청시 데이터를 무조건 쿼리로 만들어서 url과 함께 전송해야한다
-        //     // const urlQuery = `id=${data.id}&name=${data.name}&pw=${data.pw}`
-        //     // 쿼리 만들기 솔직히 좀 귀찮, 쿼리를 만들어주는 함수
-        //     const urlQuery = new URLSearchParams(data).toString();
-        //     // URLSearchParams는 파라미터를 관리하는 클래스고, toString을 사용하면 문자열로 쿼리 형태가 된다.
-
-        //     fetch(`/fatch?${urlQuery}`)
-        //     .then((res) => {
-        //         console.log("원본", res);
-        //     // json() 메소드를 이용해서 parsing 해야 함. 
-        //     // json() 은 promise 기반
-        //     // const data = res.json();
-        //     // console.log(data) // Promise pending (undefined) (문제 발생)
-        //         return res.json()
-        //     }).then((res) => {
-        //         // 위에서 파싱 해서 리턴하고
-        //         // console.log(res);
-        //         console.log("파싱", res.json());
-
-        //     })
-
-        //     // const oriRes = await fetch(`/fetch?${urlQuery}`)
-        //     // const res = await oriRes.json()
-        //     // console.log(res)
-        // }
-
-        // // 원래는 기본값 사용 : application/x-www-form-urlencoded
-        // // 하지만, fetch post 요청 시에 기본겂울 사용했을 때 동작을 안함
-        // function fetchPost() {
-        //     const data = getData()
-        //     if (!data) return;
-
-        //     fetch("/fetch", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //             // 문자열에 특수문자 들어가서 키값도 따옴표 사용해야함
-        //         },
-        //         body: JSON.stringify(data)
-        //     }).then((res) => {
-        //         return res.json()
-        //     }).then((res) => {
-        //         console.log(res)
-        //         $("#result").html(`fetch post 요청 성공 ${res.name}님 환영합니다.`)
-        //     })
-            
-        // }
-
+        });
+      };
     </script>
 </body>
 </html>
