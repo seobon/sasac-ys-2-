@@ -11,4 +11,4 @@ SaSAC 강의 코드 관리
 - git branch test ( ex. 로그인 API )
 - git branch test ( ex. 회원가입 )
 
-- git branch test2 ( ex. 회원가입 )
+- git branch test4
