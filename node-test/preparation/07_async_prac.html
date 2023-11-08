@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //-------------------- 문제 2 콜백 함수 --------------------
+
+        // setTimeout(function () {
+        //     document.body.style.backgroundColor = 'red';
+        //     setTimeout(function () {
+        //         document.body.style.backgroundColor = 'orange';
+        //         setTimeout(function () {
+        //             document.body.style.backgroundColor = 'yellow';
+        //             setTimeout(function () {
+        //                 document.body.style.backgroundColor = 'green';
+        //                 setTimeout(function () {
+        //                     document.body.style.backgroundColor = 'blue';
+        //                 }, 1000)
+        //             }, 1000)
+        //         }, 1000)
+        //     }, 1000)
+        // });
+
+
+
+        function red() {
+            document.body.style.backgroundColor = 'red';
+        };
+
+        function orange() {
+            return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                document.body.style.backgroundColor = 'orange';
+                resolve();
+            }, 1000);
+            });
+        };
+
+        function yellow() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    document.body.style.backgroundColor = 'yellow';
+                    resolve();
+                }, 1000);
+            });
+        };
+
+        function green() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    document.body.style.backgroundColor = 'green';
+                    resolve();
+                }, 1000);
+            });
+        };
+
+        function blue() {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    document.body.style.backgroundColor = 'blue';
+                    resolve();
+                }, 1000);
+            });
+        };
+
+        // red();
+        // orange().then(() => {
+        //     return yellow();
+        // }).then(() => {
+        //     return green();
+        // }).then(() => {
+        //     return blue();
+        // });
+
+
+
+        async function change() {
+            red();
+            await orange();
+            await yellow();
+            await green();
+            await blue();
+        };
+
+        change();
+    </script>
+</body>
+</html>
