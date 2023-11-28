@@ -1,0 +1,57 @@
+/* BEM 네이밍 규칙 */
+/* .FuncComponent__test-css--active {
+
+} */
+
+.test-css {
+  background-color: yellow;
+  font-size: 30px;
+}
+
+.prac {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  background-color: skyblue;
+  color: blue;
+  font-size: 30px;
+}
+
+.Section__section {
+  margin-bottom: 20px;
+  border: 2px solid blue;
+}
+
+.Section__title {
+  color: red;
+}
+
+.PropsPrac__food {
+  color: red;
+}
+
+.PropsPrac__Back {
+  width: 400px;
+  background-color: lightyellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PropsPrac__main {
+  color: orange;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.PropsPrac__title {
+  font-size: 25px;
+}
+
+.PropsPrac__info {
+  font-size: 20px;
+}
