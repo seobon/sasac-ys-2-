@@ -6,6 +6,7 @@ import PracFunc from './component/PracFunc';
 import EventClass from './component/EventClass';
 import EventFunc from './component/EventFunc';
 import HandlerEx from './component/ex/HandlerEx';
+import Practice4 from './component/Pratice4';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       <PracFunc />
       <EventClass />
       <EventFunc /> */}
-      <HandlerEx />
+      {/* <HandlerEx /> */}
+      <Practice4 />
     </div>
   );
 }
