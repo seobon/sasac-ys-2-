@@ -1,0 +1,34 @@
+/* .과 . 사이에 파일이름을 적는데 다르게 적으면 안된다 오타 X*/
+
+.origin {
+    display: flex;
+}
+
+.origin .box {
+    width: 100px;
+    height: 100px;
+}
+
+.origin .red {
+    background-color: red;
+}
+
+.origin .orange {
+    background-color: orange;
+}
+
+.origin .yellow {
+    background-color: yellow;
+}
+
+.origin .green {
+    background-color: green;
+}
+
+.origin .blue {
+    background-color: blue;
+}
+
+.origin .purple {
+    background-color: purple;
+}
