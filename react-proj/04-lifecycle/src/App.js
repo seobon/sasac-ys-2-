@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
 import LifeCycle from './components/LifeCycle';
 import LifeCycleClass from './components/LifeCycleClass';
 import PostList from './components/PostList';

@@ -3,7 +3,7 @@ import "../styles/origin.scss";
 function SassComponents () {
     return (
         <>
-            <div className="scss-parents">
+            <div className="origin-sass">
                 <div className="box red"></div>
                 <div className="orange box"></div>
                 <div className="yellow box"></div>
@@ -12,7 +12,7 @@ function SassComponents () {
                 <div className="purple box"></div>
             </div>
 
-            <div className="scss-parents">
+            {/* <div className="scss-parents">
                 안녕 난... 알아서 뭐하게
                 <ul>
                     <li>hell</li>
@@ -21,7 +21,7 @@ function SassComponents () {
             <div className="box1"></div>
             <div className="box2"></div>
             <button className="btn">일반 버튼</button>
-            <button className="btn-primary">강조 버튼</button>
+            <button className="btn-primary">강조 버튼</button> */}
         </>
     )
 }
