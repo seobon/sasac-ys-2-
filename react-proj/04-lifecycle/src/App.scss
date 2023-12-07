@@ -1,0 +1,46 @@
+$color-header: rgb(101, 168, 220);
+$color-box: rgb(206, 222, 255);
+$color-id-font: blue;
+$color-title-font: gray;
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    background-color: $color-header;
+    padding: 10px;
+    color: white;
+}
+
+.box {
+    background-color: $color-box;
+    width: 500px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.idTitle {
+    text-align: left;
+    display: flex;
+    .id {
+        color: $color-id-font;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+
+    .title {
+        color: $color-title-font;
+        font-size: 14px;
+    }
+}

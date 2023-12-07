@@ -3,15 +3,20 @@ import './App.css';
 // import OriginCss from './components/OriginCss';
 import CssModule from './components/CssModule';
 import SassComponents from './components/SassComponents';
+import StyledComponent from './components/StyledComponent';
+import PracStyle from './components/PracStyle';
+// import './styles/pracstyle.scss'
 
 function App() {
   return (
     <div>
       {/* <OriginCss />
       <hr /> */}
-      <CssModule />
-      <hr />
-      <SassComponents />
+      {/* <CssModule />
+      <hr /> */}
+      {/* <SassComponents /> */}
+      {/* <StyledComponent /> */}
+      <PracStyle />
     </div>
   );
 }
