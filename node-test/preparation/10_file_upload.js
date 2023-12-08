@@ -35,18 +35,19 @@ const uploadDetail = multer({
 })
 
 app.set("view engine", "ejs");
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 app.get("/", function (req, res) {
-    res.render("index");
+    res.render("10_file_upload_index");
 });
 
 app.post("/upload", upload.single("userfile"), function (req, res) {
     console.log("file: ", req.file);
     console.log("body: ", req.body);
 
-    res.render("result", {
+    res.render("10_file_upload_result", {
         src: req.file.path,
         title: req.body.title,
     });
@@ -57,7 +58,7 @@ app.post("/upload/detail", uploadDetail.single("userfile"), function (req, res) 
     console.log("file detail: ", req.file);
     console.log("body detail: ", req.body);
 
-    res.render("result", {
+    res.render("10_file_upload_result", {
         src: req.file.path,
         title: req.body.title,
     });
