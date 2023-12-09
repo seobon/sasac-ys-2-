@@ -18,7 +18,7 @@ export default function PracReactHookForm() {
                 {errors.name?.message}
                 <br />
                 <input type="number" placeholder="나이" {...register("age", {
-                    validate: (v) => v > 0 || "0 이상의 숫자만 입력 가능합니다."
+                    validate: (v) => v >= 0 || "0 이상의 숫자만 입력 가능합니다."
                 })}/>
                 {errors.age?.message}
                 <br />
