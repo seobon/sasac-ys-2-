@@ -12,17 +12,13 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    
-    <!-- 일반 폼 전송을 이용해서 파일 업로드하기 -->
-    <!-- enctype="application/x-www-form-urlencoded"(기본값) -->
-    <!-- 파일을 전송하려면 multipart/form-data 로 변경해야함 -->
     <h2>가장 기본적인 설정</h2>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="userfile" />
         <br />
         <input type="text" name="title" />
         <br />
-        <button type="submit"> 업로드</button>
+        <button type="submit">업로드</button>
     </form>
 
     <h2>multer stotage를 이용한 설정</h2>
@@ -57,14 +53,48 @@
         <br />
         <button type="submit"> 업로드</button>
     </form>
+    
 
+    <h2>동적 폼 전송(axios)을 이용한 파일 업로드</h2>
+    <form name="dynamic-upload">
+        <input type="file" name="userfile" />
+        <br />
+        <input type="text" name="title" />
+        <br />
+        <button type="button" onclick="dynamicUpload()">업로드</button>
+    </form>
+    <div id="dynamic-upload-result"></div>
 
+    
+    <script>
+        function dynamicUpload() {
+            const form = document.forms["dynamic-upload"];
 
+            const formData = new FormData();
+            // FormData 객체의 append 메소드는 데이터를 추가할 때 사용
+            formData.append("title", form.title.value);
+            // type 이 file input 태그 선택해서 files 에 접근해보면
+            // console.log("value", form.userfile.value);
+            // 안됨 이미지는 파일 업로드할 때는 .value의 방식으로는 파일의 값으로는 접근할 수 없음
+            console.log("files", form.userfile.files);
+            // 그래서 .files로 접근해야함
+            formData.append("userfile", form.userfile.files[0]);
 
+            axios({
+                method: "POST",
+                url: "/upload/dynamic",
+                data: formData,
+                Headers: {
+                    "Content-type" : "multipart/form-data"
+                }
+            }).then((res) => {
+                console.log(res.data)
+                const result = document.getElementById("dynamic-upload-result")
+                result.innerHTML = `<img src="/${res.data.src}" width="150"/>`
+            })
+      }
+    </script>
 
     <!-- fetch를 이용한 동적 폼 전송의 content-type 지정 -->
-    <script>
-
-    </script>
 </body>
 </html>
