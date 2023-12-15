@@ -15,33 +15,23 @@ const upload = multer({
 });
 
 const uploadDetail = multer({
-    // disk에 저장소를 만든다고 할 때
     storage: multer.diskStorage({
         destination : function(req, file, done) {
-            done(null, "uploads/")
+            done(null, "upload/")
         },
         
         filename: function (req, file, done) {
-            console.log(file) // 파일 정보가 우주소녀_은서.webp 일 때
-            const ext = path.extname(file.originalname) // .webp
-            const basename = path.basename(file.originalname, ext) // 우주소녀_은서
-            // 우주소녀_은서_4556158165.webp
+            // console.log(file)
+            const ext = path.extname(file.originalname)
+            const basename = path.basename(file.originalname, ext)
+            
             const fileName = basename + "_" + Date.now() + ext;
 
             done(null, fileName)
         }
     }),
-    limits: { fieldSize: 5 * 1024 * 1024 }, // 5MB 제한
+    // limits: { fieldSize: 5 * 1024 * 1024 },
 })
-
-// 복잡한 구조를 다 이해하려고 하지는 말고, 이런 구조를 알아두기만 해라.
-
-// storage : 파일을 저장할 정보
-    // diskStorage : 파일을 디스크에 저장하기 위한 기능을 제공하는 메소드
-        // destination : 파일이 저장될 경로
-        // filename : 파일이 저장될 이름
-// limits
-    // fileSize : 파일의 최대 크기
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -52,12 +42,7 @@ app.get("/", function (req, res) {
     res.render("10_file_upload_index");
 });
 
-// 말그대로 요청과 응답 사이에 작성. 요청은 /upload. 응답은 function.
-// single(), array(), fields() : 미들웨어 => 클라이언트가 보낸 요청 중에 userfile 이라는 name의 파일 데이터가 있다면,
-// 파일을 multer 양식에 맞게 저장해서 req.flie or req.flies 라는 객체를 생성해서 다음 함수에 넘겨줌
-// single() : 파일 하나만 업로드 할 때 사용함.
 app.post("/upload", upload.single("userfile"), function (req, res) {
-    // 인자로 들어오는 이름은 클라이언트 부분에서 보내준 file 이름을 그대로 써야한다
     console.log("file: ", req.file);
     console.log("body: ", req.body);
 
@@ -78,17 +63,14 @@ app.post("/upload/detail", uploadDetail.single("userfile"), function (req, res) 
     });
 });
 
-// array(): 파일 여러 개 업로드 (name(input) 하나로 여러 개의 파일을 받는 방법)
-// req.files 생성
+
 app.post("/upload/array", uploadDetail.array("userfile"), function (req, res) {
     console.log("file 여러 개(ver1): ", req.files);
 
     res.send("파일 여러 개 업로드");
 });
 
-// fields(): 파일 여러 개 업로드 (name(input)이 두 개 이상 여러 개의 파일을 받는 방법)
-// 배열로 이름을 직접 지정
-// req.files 생성 files는 기본적으로 여러 개 받을 수 있음. (클라이언트에서 multiple 속성 사용)
+
 app.post("/upload/fields", uploadDetail.fields([{name: "userfile1"}, {name: "userfile2"}]), function (req, res) {
     console.log("file 여러 개(ver2): ", req.files);
     console.log("req.body: ", req.body);
@@ -97,14 +79,13 @@ app.post("/upload/fields", uploadDetail.fields([{name: "userfile1"}, {name: "use
     //     src: req.files.path,
     //     title: req.body.title,
     // })
-
+    
     res.send("파일 여러 개 업로드");
 });
 
 app.post("/upload/dynamic", uploadDetail.single("userfile"), function (req, res) {
     res.send({ src: req.file.path });
 });
-// 동적 폼전송은 랜더 하면 안됨 당연함 다른 파일을 연여는 방식이아님
 
 app.listen(PORT, function () {
     console.log(`Sever Open: ${PORT}`);

@@ -27,12 +27,11 @@
         <br />
         <input type="text" name="title" />
         <br />
-        <button type="submit"> 업로드</button>
+        <button type="submit">업로드</button>
     </form>
 
     <h2>multer 파일을 여러 개 (하나의 input 이용)</h2>
     <form action="/upload/array" method="post" enctype="multipart/form-data">
-        <!-- input type file의 multiple 속성은 여러 개의 파일을 선택할 수 있게 함  -->
         <input type="file" name="userfile" multiple />
         <br />
         <input type="text" name="title" />
@@ -71,13 +70,8 @@
             const form = document.forms["dynamic-upload"];
 
             const formData = new FormData();
-            // FormData 객체의 append 메소드는 데이터를 추가할 때 사용
             formData.append("title", form.title.value);
-            // type 이 file input 태그 선택해서 files 에 접근해보면
-            // console.log("value", form.userfile.value);
-            // 안됨 이미지는 파일 업로드할 때는 .value의 방식으로는 파일의 값으로는 접근할 수 없음
             console.log("files", form.userfile.files);
-            // 그래서 .files로 접근해야함
             formData.append("userfile", form.userfile.files[0]);
 
             axios({
@@ -94,7 +88,5 @@
             })
       }
     </script>
-
-    <!-- fetch를 이용한 동적 폼 전송의 content-type 지정 -->
 </body>
 </html>

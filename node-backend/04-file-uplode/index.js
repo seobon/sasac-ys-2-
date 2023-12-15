@@ -36,7 +36,7 @@ const uploadDetail = multer({
             const ext = path.extname(file.originalname) // .webp
             const basename = path.basename(file.originalname, ext) // 우주소녀_은서
             // 우주소녀_은서_4556158165.webp
-            const fileName = basename + "_" + Date.now() + ext;
+            const fileName = basename + "_" + Date.now();
 
             done(null, fileName)
         }
