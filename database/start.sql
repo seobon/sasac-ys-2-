@@ -1,3 +1,4 @@
+-- 데이터 베이스를 확인하는 명령어
 show databases;
 
 -- 데이터 베이스 생성하는 명령어
@@ -6,15 +7,16 @@ CREATE DATABASE sesac_test DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4
 -- 데이터 베이스 확인하는 명령어
 use sesac_test;
 
-테이블을 생성하는 명령어
--- CREATE table user(
--- 	id varchar(10) primary key not null,
---     password varchar(20) not null,
---     age int unsigned
---     gender enum('여자', '남자') default'여자'
--- );
+-- 테이블을 생성하는 명령어
+CREATE table user(
+	id varchar(10) primary key not null,
+    password varchar(20) not null,
+    age int unsigned
+    gender enum('여자', '남자') default'여자'
+);
 
--- show tables;
+-- 테이블를 확인하는 명령어
+show tables;
 
 -- 만들어진 테이블에
 -- 1) 컬럼을 추가하는 명령어
@@ -28,9 +30,8 @@ alter table user modify gender varchar(2) not null;
 -- 테이블을 삭제하는 명령어
 drop table user;
 
-
-
--- select * from user;
+-- user라는 테이블의 모든 요소를 확인하겠다.
+select * from user;
 
 
 -- 실습
@@ -63,9 +64,8 @@ CREATE table user(
 );
 
 -- insert 문 ( 데이터 추가 )
-insert into user (id, password)
-value ('lily',  '1234');
-insert into user value ('lily2',  '1234', 99, '여자');
+insert into user (id, password) value ('eunseo',  '0527');
+insert into user value ('luda',  '0206', 27, '여자');
 
 -- select 문 ( 데이터 조회 )
 -- select [속성...] from [테이블이름] [where[조건]]
@@ -151,11 +151,11 @@ select * from customer where addr like '%대한민국%';
 select * from customer where custname like '__수';
 select * from customer where custname like '%해_';
 -- is null 사용 예시
--- select * from customer where custname is null;
--- select * from customer where not custname is null;
+select * from customer where custname is null;
+select * from customer where not custname is null;
 -- AND, OR,  NOT --
--- select * from customer where addr like '%대한민국%' AND birth <= '2000-05-05';
--- select * from customer where addr like '%대한민국%' or birth <= '2000-05-05';
+select * from customer where addr like '%대한민국%' AND birth <= '2000-05-05';
+select * from customer where addr like '%대한민국%' or birth <= '2000-05-05';
 
 
 select * from customer
