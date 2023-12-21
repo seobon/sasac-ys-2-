@@ -2,8 +2,11 @@ export default function Chat ({chat}) {
     return (
         <>
             <div>
-                <span className="tagPart">class </span>
-                <span className={`classPart`}> ToAll </span>
+                <span className="tagPart">function </span>
+                <span className={`functionPart`}> ToAll </span>
+                <span className="bracketPart"> &#40; </span>
+                <span className="attributePart"> {chat.userId} </span>
+                <span className="bracketPart"> &#41; </span>
                 <span className="bracketPart"> &#123; </span>
                 <div className="console-container">
                     <span className="attributePart">console</span>

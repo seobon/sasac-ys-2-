@@ -1,47 +1,102 @@
-.chat-container {
-    width: 320px;
-    min-height: 500px;
-    background-color: rgb(203, 191, 255);
-    padding: 10px 15px 0;
-  }
-  
-  .chat-container .list {
-    margin-top: 4px;
-  }
-  
-  .list > .content {
-    display: inline-block;
-    padding: 2px 10px;
-  }
-  
-  .chat-container .my-chat {
-    text-align: right;
-  }
-  .my-chat .content {
-    background-color: rgb(255, 255, 170);
-  }
-  
-  .chat-container .other-chat {
-    text-align: left;
-  }
-  .other-chat .content {
-    background-color: white;
-  }
-
-.chat-container .notice {
-    font-size: 12px;
-    color: rgb(77, 77, 77);
-    text-align: center;
-    margin-top: 6px;
+:root {
+  --width-backgrond: 2000px;
+  letter-spacing: 1px;
 }
-  
-  .input-container {
-    width: 320px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .input-container > input {
-    flex-grow: 1;
-  }
 
+.backgrond {
+  width: var(--width-backgrond);
+  height: 1000px;
+  background-color: rgba(31,31,31,255);
+  color: rgba(125,127,128,255);
+  position: relative;
+}
+
+.tagPart {
+  color: rgba(55,125,193,255);
+}
+
+.attributePart {
+  color: rgba(156,220,254,255);
+}
+
+.functionPart {
+  color: rgba(220,219,168,255);
+}
+
+.classPart {
+  color: rgba(78,201,176,255);
+}
+
+.bracketPart {
+  color: rgba(253,214,0,255);
+}
+
+.marksPart {
+  color: rgba(203,202,203,255);
+}
+
+.attributeValuePart {
+  color: rgb(198,145,118);
+}
+
+.annotationPart {
+  color: rgb(101,150,79);
+}
+
+
+.terminarPart {
+  height: 25px;
+  line-height: 25px;
+  color: rgba(204,204,204,255);
+  background-color: rgba(45,45,45,255);
+}
+
+.pathPart {
+  color: rgba(204,204,204,255);
+}
+
+.commandPart {
+  color: rgba(222,235,66,255);
+}
+
+
+
+.chat-container {
+  padding: 0px 0px 0px 20px;
+}
+
+
+
+.console-container {
+  padding: 0px 0px 0px 20px;
+}
+
+
+
+.backgrond .terminar-container {
+  width: var(--width-backgrond);
+  height: 200px;
+  background-color: rgba(24,24,24,255);
+  position: fixed;
+  top: 1000px;
+}
+
+
+
+.backgrond .terminar-container .input-container {
+  width: var(--width-backgrond);
+  background-color: rgba(24,24,24,255);
+  display: inline-block;
+}
+
+.backgrond .terminar-container .input-container > input {
+  background-color: rgba(24,24,24,255); 
+  color: rgba(204,204,204,255);
+  border: none;
+  outline: none;
+  letter-spacing: 1px;
+}
+
+.backgrond .terminar-container .input-container > input::placeholder {
+  color: rgb(150, 150, 150);
+}

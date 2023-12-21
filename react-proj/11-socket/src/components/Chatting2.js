@@ -31,6 +31,13 @@ export default function Chatting2() {
 
   useEffect(() => {
     // initSocketConnect();
+    socket.on("error", (res) => {
+      alert(res.msg);
+    });
+
+    socket.on("entrySuccess", (res) => {
+      setUserId(res.userId);
+    });
   }, []);
 
   useEffect(() => {
@@ -50,7 +57,7 @@ export default function Chatting2() {
     socket.emit("entry", { userId: userIdInput });
     // [실습 3-2] 고민해보기
     // 바로 userId에 값을 할당하지 않고
-    setUserId(userIdInput);
+    // setUserId(userIdInput);
   };
   return (
     <>
