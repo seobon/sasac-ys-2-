@@ -139,6 +139,10 @@ export default function SBProjectChat() {
               <div className="terminar-container">
                 <div className="terminarPart">INPUT FIELD</div>
                 <div className="input-container">
+                <select value={dmTo} onChange={(e) => setDmTo(e.target.value)}>
+                  <option value="all">전체</option>
+                  {userListOptions}
+                </select>
                   <span className="pathPart">C:\Hey\Users\Enter\your\message&gt;</span>
                   <span className="commandPart"> here </span>
                   <input
