@@ -2,23 +2,31 @@ export default function Chat ({chat}) {
     return (
         <>
             <div>
-                <span className="tagPart">function </span>
-                <span className={`functionPart`}> ToAll </span>
-                <span className="bracketPart"> &#40; </span>
-                <span className="attributePart"> {chat.userId} </span>
-                <span className="bracketPart"> &#41; </span>
-                <span className="bracketPart"> &#123; </span>
+                &lt;
+                <span className="tagPart">other </span>
+                <span className="attributePart"> writer</span>
+                <span className="marksPart">=</span>
+                <span className="attributeValuePart">"{chat.userId}" </span>
+                <span className="attributePart"> reciever</span>
+                <span className="marksPart">=</span>
+                <span className="attributeValuePart">"</span>
+                <span className="functionPart">{chat.isDM}</span>
+                <span className="bracketPart">&#40; &#41;</span>
+                <span className="attributeValuePart">"</span>
+                &gt;
+                <br />
                 <div className="console-container">
-                    <span className="attributePart">console</span>
-                    <span className="pathPart">.</span>
-                    <span className="functionPart">log</span>
-                    <span className="bracketPart"> &#40; </span>
-                    <span className="attributeValuePart">"{chat.content}"</span>
-                    <span className="bracketPart"> &#41; </span>
-                    <span className="pathPart"> &#59; </span>
+                    &lt;
+                    <span className="tagPart">p</span>
+                    &gt;
+                    <span className="marksPart">{chat.content}</span>
+                    &lt;
+                    <span className="tagPart">p</span>
+                    /&gt;
                 </div>
-                <span className="bracketPart"> &#125; </span>
-                <span className="pathPart"> &#59; </span>
+                &lt;
+                <span className="tagPart">other</span>
+                /&gt;
             </div>
         </>
     )

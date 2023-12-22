@@ -3,6 +3,40 @@
   letter-spacing: 1px;
 }
 
+
+.header {
+  height: 50px;
+  background-color: rgba(24,24,24,255);
+  border-color: rgba(40,40,40,255);
+  display: flex;
+}
+
+.header > button {
+  line-height: 50px;
+  padding: 0px 30px;
+  border: 1px solid;
+  border-color: rgba(40,40,40,255);
+  background-color: rgba(24,24,24,255);
+  font-size: large;
+}
+
+.header > button:hover {
+  background-color:rgba(31,31,31,255);
+}
+
+.allFilePart {
+  color: rgba(128,140,148,255);
+}
+
+.dmFilePart {
+  color: rgba(213,179,104,255);
+}
+
+.clickFilePart {
+  background-color: rgba(31,31,31,255);
+}
+
+
 .backgrond {
   width: var(--width-backgrond);
   height: 1000px;

@@ -4,6 +4,7 @@ import ChatOther from "./ChatOther";
 import Chat from "./Chat";
 import Notice from "./Notice";
 import io from "socket.io-client";
+import Header from "./Header";
 
 const socket = io.connect("http://localhost:8000", { autoConnect: false });
 export default function SBProjectChat() {
@@ -13,6 +14,20 @@ export default function SBProjectChat() {
   const [userId, setUserId] = useState(null);
   const [userList, setUserList] = useState({});
   const [dmTo, setDmTo] = useState('all');
+  const [roomList, setRoomList] = useState([
+    {
+      roomType: "all",
+      roomName: "RoomA",
+    },
+    {
+      roomType: "dm",
+      roomName: "RoomB",
+    },
+    {
+      roomType: "dm",
+      roomName: "RoomC",
+    },
+]);
 
   const initSocketConnect = () => {
     console.log("connected", socket.connected);
@@ -55,10 +70,11 @@ export default function SBProjectChat() {
   const addChatList = useCallback(
     (res) => {
       const type = res.userId === userId ? "my" : "other";
-      const content = `${res.dm ? "(속닥속다닥)" : ""} ${res.userId}: ${res.msg}`
+      const content = `${res.msg}`
+      const isDM = `${res.dm ? "dm" : "toAll"}`
       const newChatList = [
         ...chatList,
-        { type: type, userId: res.userId, content: content },
+        { type: type, userId: res.userId, content: content, isDM: isDM },
       ];
       setChatList(newChatList);
     },
@@ -97,6 +113,11 @@ export default function SBProjectChat() {
   
   return (
     <>
+      <header className="header">
+        {roomList.map((room, i) => {
+            return <Header key={i} room={room}/>;
+          })}
+      </header>
       <div className="backgrond">
         {userId ? (
           <>
@@ -105,8 +126,8 @@ export default function SBProjectChat() {
               <span className="tagPart">notice </span>
               <span className="attributePart"> message </span>
               <span className="marksPart"> = </span>
-              <span className="attributeValuePart"> "{userId}님 환영합니다."</span>
-              &gt;
+              <span className="attributeValuePart" > "{userId}님 환영합니다." </span>
+              /&gt;
             
               <div className="chat-container">
                 {chatList.map((chat, i) => {
@@ -120,10 +141,6 @@ export default function SBProjectChat() {
                 <div className="input-container">
                   <span className="pathPart">C:\Hey\Users\Enter\your\message&gt;</span>
                   <span className="commandPart"> here </span>
-                  {/* <select value={dmTo} onChange={(e) => setDmTo(e.target.value)}>
-                    <option value="all">전체</option>
-                    {userListOptions}
-                  </select> */}
                   <input
                     placeholder="Write\your\message\"
                     type="text"
