@@ -1,6 +1,5 @@
 import "../styles/chat.css";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import ChatOther from "./ChatOther";
 import Chat from "./Chat";
 import Notice from "./Notice";
 import io from "socket.io-client";
@@ -17,15 +16,7 @@ export default function SBProjectChat() {
   const [roomList, setRoomList] = useState([
     {
       roomType: "all",
-      roomName: "RoomA",
-    },
-    {
-      roomType: "dm",
-      roomName: "RoomB",
-    },
-    {
-      roomType: "dm",
-      roomName: "RoomC",
+      roomName: "ALL",
     },
 ]);
 
@@ -58,7 +49,17 @@ export default function SBProjectChat() {
       // key : userList의 key값 (socket id)
       // userList[key] -> 이렇게 하면 userList의 value를 가져올 수 있다. (사용자 id)
       if (userList[key] === userId) continue;
-      options.push(<option key={key} value={key}>{userList[key]}</option>)
+      options.push(<button key={key} value={key} className="terminar-button" onClick={(e) => {setRoomList([
+        ...roomList,
+        {
+          roomType: "dm",
+          roomName: userList[key],
+        },
+      ])
+      setDmTo(e.target.value);
+      createRoom();
+
+    }}>{userList[key]}</button>)
     }
     return options
   }, [userList])
@@ -111,6 +112,30 @@ export default function SBProjectChat() {
     socket.emit("entry", { userId: userIdInput });
   };
   
+  const createRoom = () => {
+    socket.emit("joinRoom", { roomName: "roomA" })
+    // const newRoomName = prompt('새로운 방 이름을 입력하세요.');
+    // if (newRoomName) {
+    //   // 서버에 새로운 방 생성 요청 보내기
+    //   fetch('/createRoom', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ roomName: newRoomName }),
+    //   })
+    //     .then((response) => response.text())
+    //     .then((data) => {
+    //       console.log(data); // 방 생성 응답 출력
+    //       // 새로운 방에 입장하기
+    //       socket.emit('joinRoom', newRoomName);
+    //     })
+    //     .catch((error) => {
+    //       console.error('Error:', error);
+    //     });
+    // }
+  };
+
   return (
     <>
       <header className="header">
@@ -132,17 +157,16 @@ export default function SBProjectChat() {
               <div className="chat-container">
                 {chatList.map((chat, i) => {
                   if (chat.type === "notice") return <Notice key={i} chat={chat} />;
-                  else if (chat.type === "other") return <ChatOther key={i} chat={chat} />;
                   else return <Chat key={i} chat={chat} />;
                 })}
               </div>
               <div className="terminar-container">
+                <div value={dmTo} onChange={(e) => setDmTo(e.target.value)}>
+                  <button value="all" className="terminar-button">ALL</button>
+                  {userListOptions}
+                </div>
                 <div className="terminarPart">INPUT FIELD</div>
                 <div className="input-container">
-                <select value={dmTo} onChange={(e) => setDmTo(e.target.value)}>
-                  <option value="all">전체</option>
-                  {userListOptions}
-                </select>
                   <span className="pathPart">C:\Hey\Users\Enter\your\message&gt;</span>
                   <span className="commandPart"> here </span>
                   <input

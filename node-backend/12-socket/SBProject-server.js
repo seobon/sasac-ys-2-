@@ -23,11 +23,6 @@ const updateUserList = () => {
 }
 
 io.on("connection", (socket) => {
-  updateUserList();
-  console.log("socket id", socket.id);
-  // socket id를 이용해 입장 공지
-  // io.emit("notice", { msg: `${socket.id}님이 입장하셨습니다.` });
-
   // 입장 시에 받은 user id로 입장 공지
   socket.on("entry", (res) => {
     // Object.values(userIdArr) => ["userIda", "userIdb", "userIdc"]
@@ -41,6 +36,7 @@ io.on("connection", (socket) => {
       io.emit("notice", { msg: `${res.userId}님이 입장하셨습니다.` });
       socket.emit("entrySuccess", { userId: res.userId });
       userIdArr[socket.id] = res.userId;
+      updateUserList();
     }
     console.log(userIdArr);
     // 중복된다는 오류 메세지를 보내주던지
@@ -61,6 +57,26 @@ io.on("connection", (socket) => {
       socket.emit("chat", { userId: res.userId, msg: res.msg, dm: true })
     }
   });
+
+
+  console.log("SOCKETIO connection EVENT: ", socket.id, " client connected");
+
+  socket.on('joinRoom', (res) => {
+      socket.join(res.roomName); 
+      console.log(res.roomName);
+      io.emit(`${res.roomName}`, { msg: `${userIdArr[socket.id]}님이 퇴장하셨습니다.` });
+      // cb(msg[roomName]);
+  });
+
+
+});
+
+app.post('/createRoom', (req, res) => {
+  const roomName = req.body.roomName; // 클라이언트에서 전달한 방 이름
+  // 방 생성 로직
+  // ...
+
+  res.send('방이 생성되었습니다.');
 });
 
 server.listen(PORT, function () {

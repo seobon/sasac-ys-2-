@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
+
 export default function Chat ({chat}) {
+    const [who, setWho] = useState('');
+    useEffect(() => {
+        const fun = () => {
+            if (chat.type == "my") {
+                setWho("me")
+            }
+            else {
+                setWho("other")
+            }
+        }
+        fun();
+      }, []);
     return (
         <>
             <div>
                 &lt;
-                <span className="tagPart">me </span>
+                <span className="tagPart">{who} </span>
                 <span className="attributePart"> writer</span>
                 <span className="marksPart">=</span>
                 <span className="attributeValuePart">"{chat.userId}" </span>
@@ -25,7 +39,7 @@ export default function Chat ({chat}) {
                     /&gt;
                 </div>
                 &lt;
-                <span className="tagPart">me</span>
+                <span className="tagPart">{who}</span>
                 /&gt;
             </div>
         </>

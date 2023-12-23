@@ -4,8 +4,9 @@
 }
 
 
+
 .header {
-  height: 50px;
+  height: 45px;
   background-color: rgba(24,24,24,255);
   border-color: rgba(40,40,40,255);
   display: flex;
@@ -17,15 +18,7 @@
   border: 1px solid;
   border-color: rgba(40,40,40,255);
   background-color: rgba(24,24,24,255);
-  font-size: large;
-}
-
-.header > .button {
-  line-height: 50px;
-  padding: 0px 30px;
-  border: 1px solid rgba(40,40,40,255);
-  background-color: rgba(24,24,24,255);
-  font-size: large;
+  font-size: 14px;
 }
 
 .header > .clickButton {
@@ -36,7 +29,7 @@
   background-color: rgba(31,31,31,255);
   line-height: 50px;
   padding: 0px 30px;
-  font-size: large;
+  font-size: 14px;
 }
 
 .header > button:hover {
@@ -50,6 +43,20 @@
 .dmFilePart {
   color: rgba(205,179,113,255);
 }
+
+.allPart {
+  color: rgba(223,101,42,255);
+  letter-spacing: 2px;
+  padding-right: 8px;
+}
+
+.dmPart {
+  color: rgba(203,203,65,255);
+  font-weight: 700;
+  letter-spacing: -1px;
+  padding-right: 8px;
+}
+
 
 
 .backgrond {
@@ -93,12 +100,41 @@
 }
 
 
+
 .terminarPart {
   height: 25px;
   line-height: 25px;
   color: rgba(204,204,204,255);
   background-color: rgba(45,45,45,255);
 }
+
+.terminar-button {
+  line-height: 40px;
+  padding: 0px 30px;
+  border: none;
+  outline: none;
+  background-color: rgba(24,24,24,255);
+  font-size: 14px;
+  color: rgba(142,142,143,255);
+}
+
+.terminar-clickButton {
+  line-height: 40px;
+  padding: 0px 30px;
+  border: none;
+  outline: none;
+  background-color: rgba(24,24,24,255);
+  font-size: 14px;
+  color: rgba(185,185,185,255);
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: rgba(6,96,165,255);
+}
+
+.terminar-button:hover {
+  color: rgba(185,185,185,255);
+}
+
 
 .pathPart {
   color: rgba(204,204,204,255);
@@ -113,8 +149,6 @@
 .chat-container {
   padding: 0px 0px 0px 20px;
 }
-
-
 
 .console-container {
   padding: 0px 0px 0px 20px;
